@@ -22,6 +22,12 @@ function install_ovs() {
     apt-get install -y openvswitch-switch=$OVS_VERSION openvswitch-common=$OVS_VERSION
 }
 
+function install_mn() {
+    MN_VERSION=2.2.1-2
+    [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
+    apt-get install -y mininet=$MN_VERSION
+}
+
 function download_odl() {
     ODL_VERSION=0.5.3-Boron-SR3
     [ -f $CACHE/distribution-karaf-$ODL_VERSION.tar.gz ] || \
@@ -39,6 +45,7 @@ function main() {
     :
     install_jdk
     install_ovs
+    install_mn
     install_odl
 }
 main
