@@ -28,10 +28,17 @@ function download_odl() {
     wget https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/distribution-karaf/$ODL_VERSION/distribution-karaf-$ODL_VERSION.tar.gz -O $CACHE/distribution-karaf-$ODL_VERSION.tar.gz
 }
 
+function install_odl() {
+    download_odl
+
+    tar -zxf $CACHE/distribution-karaf-$ODL_VERSION.tar.gz -C /opt
+    ln -sf /opt/distribution-karaf-$ODL_VERSION /opt/odl 
+}
+
 function main() {
     :
     install_jdk
     install_ovs
-    download_odl
+    install_odl
 }
 main
