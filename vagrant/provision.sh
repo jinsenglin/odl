@@ -10,7 +10,12 @@ pwd | tee -a $LOG          # where
 function install_jdk() {
     JDK_VERSION=8
     apt-get update
-    apt-get install openjdk-$JDK_VERSION-jdk
+    apt-get install -y openjdk-$JDK_VERSION-jdk
+}
+
+function install_ovs() {
+    OVS_VERSION=2.5.2-0ubuntu0.16.04.1
+    apt-get install -y openvswitch-switch=$OVS_VERSION openvswitch-common=$OVS_VERSION
 }
 
 function download_odl() {
@@ -21,6 +26,7 @@ function download_odl() {
 function main() {
     :
     install_jdk
+    #install_ovs
     #download_odl
 }
 main
