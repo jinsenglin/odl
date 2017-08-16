@@ -27,14 +27,10 @@ disable_service swift
 disable_service cinder
 disable_service n-net
 
-#
+# Openstack + ODL integreation (L2 Mode)
 enable_service q-svc
+enable_service q-agt
 enable_service q-dhcp
 enable_service q-l3
 enable_service q-meta
-enable_service q-vpn
-enable_service q-metering
-enable_service neutron
 enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl stable/newton
-ENABLE_TENANT_TUNNELS=True
-ODL_PROVIDER_MAPPINGS=${ODL_PROVIDER_MAPPINGS:-physnet1:enp0s3}
