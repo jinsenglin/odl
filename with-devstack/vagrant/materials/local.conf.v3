@@ -26,11 +26,17 @@ enable_service n-spice
 disable_service swift
 disable_service cinder
 
-# Openstack + ODL integreation (L2 Mode)
+# neutron
 disable_service n-net
 enable_service q-svc
 enable_service q-agt
 enable_service q-dhcp
 enable_service q-l3
 enable_service q-meta
-enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl stable/newton
+#Q_FLOATING_ALLOCATION_POOL=start=10.0.2.250,end=10.0.2.254
+#Q_USE_SECGROUP=True
+#Q_L3_ENABLED=True
+#PUBLIC_BRIDGE=br-ex
+#Q_USE_PROVIDERNET_FOR_PUBLIC=True
+#OVS_PHYSICAL_BRIDGE=br-ex
+#OVS_BRIDGE_MAPPINGS=public:br-ex
