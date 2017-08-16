@@ -30,11 +30,11 @@ function install_odl() {
 }
 
 function install_python() {
-    PYTHON_VERSION=2.7.12
-    PYTHON_PIP_VERSION=2.7.12
-    PYTHON_OS_TESTR_VERSION=2.7.12
+    PYTHON_VERSION=2.7.11-1
+    PYTHON_PIP_VERSION=8.1.1-2ubuntu0.4
+    PYTHON_OS_TESTR_VERSION=0.6.0-1
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
-    apt-get install -y python python-pip python-os-testr
+    apt-get install -y python=$PYTHON_VERSION python-pip=$PYTHON_PIP_VERSION python-os-testr=$PYTHON_OS_TESTR_VERSION
 }
 
 function download_devstack() {
