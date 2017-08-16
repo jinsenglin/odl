@@ -19,14 +19,14 @@ PUBLIC_INTERFACE=enp0s3
 PUBLIC_NETWORK_GATEWAY=10.0.2.2
 FLOATING_RANGE=10.0.2.0/24
 
-#
+# v6: use neutron + odl (L2 + L3 mode)
 disable_service tempest
 disable_service n-novnc
 enable_service n-spice
 disable_service swift
 disable_service cinder
 
-# Openstack + ODL integreation (L2+L3 Mode) (new netvirt implementation :: vpnservice based)
+# neutron + odl (new netvirt implementation :: vpnservice based)
 disable_service n-net
 enable_service q-svc
 enable_service q-dhcp
