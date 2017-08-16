@@ -43,8 +43,14 @@ function download_devstack() {
     git clone -b stable/$DEVSTACK_VERSION -- https://github.com/openstack-dev/devstack.git $CACHE/devstack-$DEVSTACK_VERSION
 }
 
+function restore_devstack() {
+    [ -f $CACHE/stack.tgz ]  && \
+    tar -xpvzf $CACHE/stack.tgz -C /opt
+}
+
 function install_devstack() {
     download_devstack
+    restore_devstack
 
     cp /vagrant/materials/local.conf $CACHE/devstack-$DEVSTACK_VERSION/local.conf
     echo TODO: run stack.sh
