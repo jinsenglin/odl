@@ -53,7 +53,8 @@ function install_devstack() {
     restore_devstack
 
     cp /vagrant/materials/local.conf $CACHE/devstack-$DEVSTACK_VERSION/local.conf
-    echo TODO: run stack.sh
+    echo "TODO: run stack.sh"
+    echo "TODO: run cd /opt && tar -cpvzf $CACHE/stack.tgz"
 }
 
 function main() {
