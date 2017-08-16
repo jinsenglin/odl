@@ -36,3 +36,5 @@ enable_service q-meta
 enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl
 
 # not yet successfully installed
+# verify command: wget --no-proxy -q -O- http://172.18.161.7:9696
+# error message: Neutron did not start
