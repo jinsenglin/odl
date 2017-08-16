@@ -46,7 +46,8 @@ function download_devstack() {
 function install_devstack() {
     download_devstack
 
-    echo TODO
+    cp /vagrant/materials/local.conf $CACHE/devstack-$DEVSTACK_VERSION/local.conf
+    echo TODO: run stack.sh
 }
 
 function main() {
