@@ -34,7 +34,7 @@ enable_service q-l3
 enable_service q-meta
 enable_service q-vpn
 enable_service q-metering
-enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl stable/newton
+enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl
 ENABLE_TENANT_TUNNELS=True
 ODL_PROVIDER_MAPPINGS=${ODL_PROVIDER_MAPPINGS:-physnet1:enp0s3}
 ODL_NETVIRT_KARAF_FEATURE=odl-restconf-all,odl-aaa-authn,odl-dlux-core,odl-mdsal-apidocs,odl-netvirt-vpnservice-openstack
@@ -48,7 +48,7 @@ enable_service q-l3
 enable_service q-meta
 enable_service q-vpn
 enable_service q-metering
-enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl stable/newton
+enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl
 ENABLE_TENANT_TUNNELS=True
 ODL_L3=True
 ODL_PROVIDER_MAPPINGS=${ODL_PROVIDER_MAPPINGS:-br-ex:enp0s3}
