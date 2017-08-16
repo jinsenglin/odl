@@ -37,4 +37,5 @@ enable_service q-metering
 enable_service neutron
 enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl stable/newton
 ENABLE_TENANT_TUNNELS=True
-ODL_PROVIDER_MAPPINGS=${ODL_PROVIDER_MAPPINGS:-physnet1:enp0s3}
+ODL_L3=True
+ODL_PROVIDER_MAPPINGS=${ODL_PROVIDER_MAPPINGS:-br-ex:enp0s3}
