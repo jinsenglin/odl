@@ -41,4 +41,4 @@ OVS_PHYSICAL_BRIDGE=br-ex
 OVS_BRIDGE_MAPPINGS=public:br-ex
 PUBLIC_BRIDGE=br-ex
 
-# not yet successfully installed
+# successfully installed
