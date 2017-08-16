@@ -1,0 +1,9 @@
+{
+  "network-topology:node": [
+  {
+    "node-id": "ovsdb://host1/bridge/br0",
+    "ovsdb:bridge-name": "br0",
+    "ovsdb:managed-by": "/network-topology:network-topology/network-topology:topology[network-topology:topology-id='ovsdb:1']/network-topology:node[network-topology:node-id='ovsdb://host1']"
+  }
+  ]
+}

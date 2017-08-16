@@ -1,0 +1,12 @@
+{
+  "node": [
+  {
+    "node-id": "ovsdb://host1",
+    "connection-info":
+    {
+      "ovsdb:remote-ip": "192.168.34.101",
+      "ovsdb:remote-port": 6641
+    }
+  }
+  ]
+}
