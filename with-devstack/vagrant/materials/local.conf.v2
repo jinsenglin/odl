@@ -1,0 +1,40 @@
+[[local|localrc]]
+
+# default
+ADMIN_PASSWORD=nomoresecret
+DATABASE_PASSWORD=stackdb
+RABBIT_PASSWORD=stackqueue
+SERVICE_PASSWORD=$ADMIN_PASSWORD
+
+LOGFILE=$DEST/logs/stack.sh.log
+LOGDAYS=1
+
+# added
+LOGDIR=$DEST/logs
+RECLONE=no
+OFFLINE=False
+
+HOST_IP=172.18.161.7
+PUBLIC_INTERFACE=enp0s3
+PUBLIC_NETWORK_GATEWAY=10.0.2.2
+FLOATING_RANGE=10.0.2.0/24
+
+#
+disable_service tempest
+disable_service swift
+disable_service cinder
+disable_service n-net
+
+enable_service q-svc
+enable_service q-dhcp
+enable_service q-l3
+enable_service q-meta
+enable_service neutron
+enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl
+ENABLE_TENANT_TUNNELS=True
+ODL_L3=True
+ODL_PROVIDER_MAPPINGS=${ODL_PROVIDER_MAPPINGS:-br-ex:enp0s3} 
+Q_ML2_PLUGIN_MECHANISM_DRIVERS=opendaylight
+
+disable_service n-novnc
+enable_service n-spice
