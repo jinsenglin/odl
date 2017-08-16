@@ -36,5 +36,11 @@ enable_service q-meta
 enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl
 
 # not yet successfully installed
+#
+# [ devstack.log ]
 # verify command: wget --no-proxy -q -O- http://172.18.161.7:9696
 # error message: Neutron did not start
+#
+# [ screen 7$(L) q-svc* ]
+# ImportError: Plugin 'odl-router' not found.
+# q-svc failed to start
