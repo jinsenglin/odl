@@ -31,7 +31,7 @@ function install_mn() {
 function download_odl() {
     ODL_VERSION=0.5.3-Boron-SR3
     [ -f $CACHE/distribution-karaf-$ODL_VERSION.tar.gz ] || \
-    wget https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/distribution-karaf/$ODL_VERSION/distribution-karaf-$ODL_VERSION.tar.gz -O $CACHE/distribution-karaf-$ODL_VERSION.tar.gz
+    wget -q https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/distribution-karaf/$ODL_VERSION/distribution-karaf-$ODL_VERSION.tar.gz -O $CACHE/distribution-karaf-$ODL_VERSION.tar.gz
 }
 
 function install_odl() {
