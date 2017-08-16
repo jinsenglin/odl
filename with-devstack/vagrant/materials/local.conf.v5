@@ -52,3 +52,5 @@ enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl
 ENABLE_TENANT_TUNNELS=True
 ODL_L3=True
 ODL_PROVIDER_MAPPINGS=${ODL_PROVIDER_MAPPINGS:-br-ex:enp0s3}
+
+# not yet successfully installed
