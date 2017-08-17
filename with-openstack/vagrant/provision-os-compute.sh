@@ -10,6 +10,21 @@ pwd | tee -a $LOG          # where: /home/ubuntu
 CACHE=/vagrant/cache
 [ -d $CACHE ] || mkdir -p $CACHE 
 
+function use_local_apt_server() {
+    cat > /etc/apt/sources.list <<DATA
+deb http://192.168.240.3/ubuntu xenial main restricted
+deb http://192.168.240.3/ubuntu xenial universe
+deb http://192.168.240.3/ubuntu xenial multiverse
+deb http://192.168.240.3/ubuntu xenial-updates main restricted
+deb http://192.168.240.3/ubuntu xenial-updates universe
+deb http://192.168.240.3/ubuntu xenial-updates multiverse
+deb http://192.168.240.3/ubuntu xenial-security main restricted
+deb http://192.168.240.3/ubuntu xenial-security universe
+deb http://192.168.240.3/ubuntu xenial-security multiverse
+deb http://192.168.240.3/ubuntu-cloud-archive xenial-updates/newton main
+DATA
+}
+
 function install_python() {
     PYTHON_VERSION=2.7.11-1
     PYTHON_PIP_VERSION=8.1.1-2ubuntu0.4
@@ -20,6 +35,7 @@ function install_python() {
 
 function main() {
     :
+    #use_local_apt_server
     #install_python
 }
 main
