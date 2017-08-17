@@ -35,6 +35,8 @@ enable_service q-l3
 enable_service q-meta
 enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl
 
+# only passed for master branch of devstack but failed at stable/newton branch of devstack
+#
 # not yet successfully installed
 #
 # [ devstack.log ]
