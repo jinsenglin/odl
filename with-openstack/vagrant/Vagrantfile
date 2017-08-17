@@ -1,7 +1,10 @@
+BOX = "ubuntu/xenial64"
+BOX_VERSION = "20170731.0.0"
+
 Vagrant.configure("2") do |config|
   config.vm.define "os-controller" do |d|
-    d.vm.box = "ubuntu/xenial64"
-    d.vm.box_version = "20170731.0.0"
+    d.vm.box = BOX
+    d.vm.box_version = BOX_VERSION
     d.vm.box_check_update = false
     d.vm.network "private_network", ip: "172.18.161.101"
     d.vm.provider "virtualbox" do |p|
@@ -12,8 +15,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "os-network" do |d|
-    d.vm.box = "ubuntu/xenial64"
-    d.vm.box_version = "20170731.0.0"
+    d.vm.box = BOX
+    d.vm.box_version = BOX_VERSION
     d.vm.box_check_update = false
     d.vm.network "private_network", ip: "172.18.161.102"
     d.vm.provider "virtualbox" do |p|
@@ -24,8 +27,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "os-compute" do |d|
-    d.vm.box = "ubuntu/xenial64"
-    d.vm.box_version = "20170731.0.0"
+    d.vm.box = BOX
+    d.vm.box_version = BOX_VERSION
     d.vm.box_check_update = false
     d.vm.network "private_network", ip: "172.18.161.103"
     d.vm.provider "virtualbox" do |p|
@@ -36,8 +39,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "odl-controller" do |d|
-    d.vm.box = "ubuntu/xenial64"
-    d.vm.box_version = "20170731.0.0"
+    d.vm.box = BOX
+    d.vm.box_version = BOX_VERSION
     d.vm.box_check_update = false
     d.vm.network "private_network", ip: "172.18.161.104"
     d.vm.provider "virtualbox" do |p|
