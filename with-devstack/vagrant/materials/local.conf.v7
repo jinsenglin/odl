@@ -19,24 +19,26 @@ PUBLIC_INTERFACE=enp0s3
 PUBLIC_NETWORK_GATEWAY=10.0.2.2
 FLOATING_RANGE=10.0.2.0/24
 
-# v5: use neutron + odl (L2 + L3 mode)
+# v6: use neutron + odl (L2 + L3 mode)
 disable_service tempest
 disable_service n-novnc
 enable_service n-spice
 disable_service swift
 disable_service cinder
 
-# neutron + odl (old netvirt implementation :: ovsdb based)
+# neutron + odl (new netvirt implementation :: vpnservice based)
 disable_service n-net
 enable_service q-svc
 enable_service q-dhcp
-enable_service q-l3
+disable_service q-l3
 enable_service q-meta
 enable_service q-vpn
 enable_service q-metering
 enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl
-ENABLE_TENANT_TUNNELS=True
-ODL_L3=True
-ODL_PROVIDER_MAPPINGS=${ODL_PROVIDER_MAPPINGS:-br-ex:enp0s3}
+ODL_MODE=allinone
+Q_ML2_PLUGIN_MECHANISM_DRIVERS=opendaylight,logger
+ODL_GATE_SERVICE_PROVIDER=vpnservice
+ML2_L3_PLUGIN=odl-router
+ODL_PROVIDER_MAPPINGS=${ODL_PROVIDER_MAPPINGS:-physnet1:enp0s3}
 
 # not yet successfully installed

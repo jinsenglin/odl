@@ -19,7 +19,7 @@ PUBLIC_INTERFACE=enp0s3
 PUBLIC_NETWORK_GATEWAY=10.0.2.2
 FLOATING_RANGE=10.0.2.0/24
 
-# v6: use neutron + odl (L2 + L3 mode)
+# v5: use neutron + odl (L2 + L3 mode)
 disable_service tempest
 disable_service n-novnc
 enable_service n-spice
@@ -30,15 +30,15 @@ disable_service cinder
 disable_service n-net
 enable_service q-svc
 enable_service q-dhcp
-disable_service q-l3
+enable_service q-l3
 enable_service q-meta
 enable_service q-vpn
 enable_service q-metering
 enable_plugin networking-odl http://git.openstack.org/openstack/networking-odl
-ODL_MODE=allinone
-Q_ML2_PLUGIN_MECHANISM_DRIVERS=opendaylight,logger
-ODL_GATE_SERVICE_PROVIDER=vpnservice
-ML2_L3_PLUGIN=odl-router
+ENABLE_TENANT_TUNNELS=True
 ODL_PROVIDER_MAPPINGS=${ODL_PROVIDER_MAPPINGS:-physnet1:enp0s3}
+ODL_NETVIRT_KARAF_FEATURE=odl-restconf-all,odl-aaa-authn,odl-dlux-core,odl-mdsal-apidocs,odl-netvirt-vpnservice-openstack
+ODL_BOOT_WAIT_URL=restconf/operational/network-topology:network-topology/ # Workaround since netvirt:1 no longer exists in DS!
+
 
 # not yet successfully installed
