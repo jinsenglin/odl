@@ -141,6 +141,13 @@ function install_neutron() {
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
     # This reference uses neutron-linuxbridge-agent, but we need neutron-openvswitch-agent.
+    # This reference is for 2-nodes deployment (one controller, one compute), but we need 3-nodes deployment (one controller, one network, one compute).
+
+    # Reference https://docs.openstack.org/neutron/pike/admin/deploy-ovs-selfservice.html
+    # This reference is for pike version, but we need newton version.
+    # This reference uses neutron-openvswitch-agent.
+    # This reference is for VXLAN self-service networks.
+    # This reference is for 3-nodes deployment.
 }
 
 function install_nova() {
