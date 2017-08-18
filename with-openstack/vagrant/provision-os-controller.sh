@@ -160,16 +160,16 @@ function install_nova() {
 
 function main() {
     :
-    #use_local_apt_server
-    #each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address
-    #install_python
-    #install_ntp
-    #install_sqldb
-    #install_mq
-    #install_memcached
-    #install_keystone
-    #install_glance
-    #install_neutron
-    #install_nova
+    use_local_apt_server
+    each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address
+    install_python
+    install_ntp
+    install_sqldb
+    install_mq
+    install_memcached
+    install_keystone
+    install_glance
+    install_neutron
+    install_nova
 }
 main
