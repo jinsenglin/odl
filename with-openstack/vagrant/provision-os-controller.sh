@@ -284,7 +284,7 @@ DATA
     sed -i "s|#flavor = keystone|flavor = keystone|" /etc/glance/glance-api.conf
 
     # Edit the /etc/glance/glance-api.conf file, [glance_store] section
-    # TODO
+    echo -e "stores = file,http\ndefault_store = file\nfilesystem_store_datadir = /var/lib/glance/images/\n" | sed -i "/^\[glance_store\]/ r /dev/stdin" /etc/glance/glance-api.conf
 
     # Edit the /etc/glance/glance-registry.conf file, [database] section
     sed -i "s|^#connection = <None>|connection = mysql+pymysql://glance:GLANCE_DBPASS@os-controller/glance|" /etc/glance/glance-registry.conf
