@@ -254,7 +254,40 @@ GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY 'GLANCE_D
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'GLANCE_DBPASS';
 DATA
 
+    # Create the user
+    source /root/admin-openrc
+    openstack user create --domain default --password GLANCE_PASS glance
+
+    # Associate the user with the admin role and the service project
+    source /root/admin-openrc
+    openstack role add --project service --user glance admin
+
+    # Create the service entity
+    source /root/admin-openrc
+    openstack service create --name glance --description "OpenStack Image" image
+
+    # Create the service api endpoint
+    source /root/admin-openrc
+    openstack endpoint create --region RegionOne image public http://os-controller:9292
+    openstack endpoint create --region RegionOne image internal http://os-controller:9292
+    openstack endpoint create --region RegionOne image admin http://os-controller:9292
+
+    # Edit the /etc/glance/glance-api.conf file
     # TODO
+
+    # Edit the /etc/glance/glance-registry.conf file
+    # TODO
+
+    # Populate the database
+    su -s /bin/sh -c "glance-manage db_sync" glance
+
+    # Restart the Image services
+    service glance-registry restart
+    service glance-api restart
+
+    # LOG files
+    # /var/log/glance/glance-api.log
+    # /var/log/glance/glance-registry.log    
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/glance.html
 }
