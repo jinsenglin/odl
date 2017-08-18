@@ -328,22 +328,35 @@ function install_neutron() {
     # ?
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
-    # This reference uses neutron-linuxbridge-agent, but we need neutron-openvswitch-agent.
     # This reference is for 2-nodes deployment (one controller, one compute), but we need 3-nodes deployment (one controller, one network, one compute).
+    # This reference uses neutron-linuxbridge-agent, but we need neutron-openvswitch-agent.
+    # `apt-get install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent` # for controller node
+    # `apt-get install neutron-linuxbridge-agent` # for compute node
 
     # Reference https://docs.openstack.org/neutron/pike/admin/deploy-ovs-selfservice.html
     # This reference is for pike version, but we need newton version.
+    # This reference is for 3-nodes deployment.
     # This reference uses neutron-openvswitch-agent.
     # This reference is for VXLAN self-service networks.
-    # This reference is for 3-nodes deployment.
 
     # Reference http://www.unixarena.com/2015/10/openstack-configure-network-service-neutron-controller-part-6.html
     # Reference http://www.unixarena.com/2015/10/openstack-configure-neutron-on-network-node-part-7.html
     # Reference http://www.unixarena.com/2015/10/openstack-configure-neutron-on-compute-node-part-8.html
     # This reference is for 3-nodes deployment.
+    # This reference uses neutron-openvswitch-agent.
+    # This reference uses GRE self-service networks, but we need VXLAN version.
     # `apt-get install neutron-server neutron-plugin-ml2` # for controller node
     # `apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent` # for network node
     # `apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent` # for compute node
+
+    # Reference https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/ *****
+    # This reference is for 3-nodes deployment.
+    # This reference uses neutron-openvswitch-agent.
+    # This reference uses VXLAN self-service networks.
+    # `apt-get install neutron-server neutron-plugin-ml2` # for controller node
+    # `apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent` # for network node
+    # `apt-get install neutron-plugin-openvswitch-agent` # for compute node
+
 }
 
 function install_nova() {
