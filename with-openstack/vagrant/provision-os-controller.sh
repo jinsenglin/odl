@@ -190,8 +190,10 @@ GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'KEYS
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'KEYSTONE_DBPASS';
 DATA
 
-    # Edit the /etc/keystone/keystone.conf file
+    # Edit the /etc/keystone/keystone.conf file, [token] section
     sed -i "s|^#provider = uuid|provider = fernet|" /etc/keystone/keystone.conf
+
+    # Edit the /etc/keystone/keystone.conf file, [database] section
     sed -i "s|^connection = sqlite.*|connection = mysql+pymysql://keystone:KEYSTONE_DBPASS@os-controller/keystone|" /etc/keystone/keystone.conf
 
     # Populate the database
@@ -272,11 +274,26 @@ DATA
     openstack endpoint create --region RegionOne image internal http://os-controller:9292
     openstack endpoint create --region RegionOne image admin http://os-controller:9292
 
-    # Edit the /etc/glance/glance-api.conf file
+    # Edit the /etc/glance/glance-api.conf file, [database] section
+    sed -i "s|^#connection = <None>|connection = mysql+pymysql://glance:GLANCE_DBPASS@os-controller/glance|" /etc/glance/glance-api.conf
+
+    # Edit the /etc/glance/glance-api.conf file, [keystone_authtoken] section
     # TODO
 
-    # Edit the /etc/glance/glance-registry.conf file
+    # Edit the /etc/glance/glance-api.conf file, [paste_deploy] section
+    sed -i "s|#flavor = keystone|flavor = keystone|" /etc/glance/glance-api.conf
+
+    # Edit the /etc/glance/glance-api.conf file, [glance_store] section
     # TODO
+
+    # Edit the /etc/glance/glance-registry.conf file, [database] section
+    sed -i "s|^#connection = <None>|connection = mysql+pymysql://glance:GLANCE_DBPASS@os-controller/glance|" /etc/glance/glance-registry.conf
+
+    # Edit the /etc/glance/glance-registry.conf file, [keystone_authtoken] section
+    # TODO
+
+    # Edit the /etc/glance/glance-registry.conf file, [paste_deploy] section
+    sed -i "s|#flavor = keystone|flavor = keystone|" /etc/glance/glance-registry.conf
 
     # Populate the database
     su -s /bin/sh -c "glance-manage db_sync" glance
