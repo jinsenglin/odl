@@ -108,9 +108,19 @@ function install_mq() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y rabbitmq-server=$RABBITMQ_SERVER_VERSION
 
-    # TODO
+    # # # # # # # # # # # # # # # # ## # # # # # # # # # # # # # # # # # # # # # # # # ## # # # # # # # #
+
     # Add the openstack user
-    # Permit configuration
+    rabbitmqctl add_user openstack RABBIT_PASS
+
+    # Permit configuration, write, and read access for the openstack user
+    rabbitmqctl set_permissions openstack ".*" ".*" ".*"
+
+    # Log files
+    # /var/log/rabbitmq/rabbit@ubuntu-xenial.log
+    # /var/log/rabbitmq/rabbit@ubuntu-xenial-sasl.log
+    # /var/log/rabbitmq/startup_err
+    # /var/log/rabbitmq/startup_log
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-messaging.html
 }
