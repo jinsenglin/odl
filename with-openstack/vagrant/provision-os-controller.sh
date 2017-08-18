@@ -52,10 +52,21 @@ function install_ntp() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y chrony=$CHRONY_VERSION
 
-    # TODO
-    # Edit the /etc/chrony/chrony.conf file
+    # # # # # # # # # # # # # # # # ## # # # # # # # # # # # # # # # # # # # # # # # # ## # # # # # # # #
+
     # To enable other nodes to connect
+    echo "allow 172.18.161.0/24" >> /etc/chrony/chrony.conf
+
     # Restart the NTP service
+    service chrony restart
+
+    # Verify operation
+    chronyc sources
+
+    # Log files
+    # /var/log/chrony/measurements.log
+    # /var/log/chrony/statistics.log
+    # /var/log/chrony/tracking.log
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-ntp-controller.html
 }
