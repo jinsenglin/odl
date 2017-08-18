@@ -80,9 +80,10 @@ function install_sqldb() {
     # # # # # # # # # # # # # # # # ## # # # # # # # # # # # # # # # # # # # # # # # # ## # # # # # # # #
 
     # Create and edit the /etc/mysql/mariadb.conf.d/99-openstack.cnf file
+    # For development convenience, you can use 0.0.0.0 instead of the management IP address.
     cat > /etc/mysql/mariadb.conf.d/99-openstack.cnf <<DATA
 [mysqld]
-bind-address = 0.0.0.0
+bind-address = 172.18.161.101
 
 default-storage-engine = innodb
 innodb_file_per_table
@@ -131,9 +132,17 @@ function install_memcached() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y memcached=$MEMCACHED_VERSION python-memcache=$PYTHON_MEMCACHE_VERSION
 
-    # TODO
-    # Edit the /etc/memcached.conf file
+    # # # # # # # # # # # # # # # # ## # # # # # # # # # # # # # # # # # # # # # # # # ## # # # # # # # #
+
+    # Edit the /etc/memcached.conf file and configure the service to use the management IP address of the controller node.
+    # For development convenience, you can use 0.0.0.0 instead of the management IP address.
+    sed -i "s/-l 127.0.0.1/-l 172.18.161.101/" /etc/memcached.conf
+
     # Restart the Memcached service
+    service memcached restart
+
+    # Log files
+    # n/a
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-memcached.html
 }
