@@ -23,6 +23,10 @@ deb http://192.168.240.3/ubuntu xenial-security universe
 deb http://192.168.240.3/ubuntu xenial-security multiverse
 deb http://192.168.240.3/ubuntu-cloud-archive xenial-updates/newton main
 DATA
+
+    rm -rf /var/lib/apt/lists/*
+    echo 'APT::Get::AllowUnauthenticated "true";' > /etc/apt/apt.conf.d/99-use-local-apt-server
+    apt-get update && APT_UPDATED=true
 }
 
 function each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address() {
@@ -44,9 +48,9 @@ function install_python() {
 }
 
 function install_ntp() {
-    CHRONY_VERSION=
+    CHRONY_VERSION=2.1.1-1
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
-    apt-get install -y chrony #TODO get version
+    apt-get install -y chrony=$CHRONY_VERSION
 
     # TODO
     # Edit the /etc/chrony/chrony.conf file
@@ -57,10 +61,10 @@ function install_ntp() {
 }
 
 function install_sqldb() {
-    MARIADB_SERVER_VERSION=
-    PYTHON_PYMSQL_VERSION=
+    MARIADB_SERVER_VERSION=10.0.31-0ubuntu0.16.04.2
+    PYTHON_PYMSQL_VERSION=0.7.2-1ubuntu1
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
-    apt-get install -y mariadb-server python-pymysql #TODO get version
+    apt-get install -y mariadb-server=$MARIADB_SERVER_VERSION python-pymysql=$PYTHON_PYMSQL_VERSION
 
     # TODO
     # Create and edit the /etc/mysql/mariadb.conf.d/99-openstack.cnf file
@@ -71,9 +75,9 @@ function install_sqldb() {
 }
 
 function install_mq() {
-    RABBITMQ_SERVER_VERSION=
+    RABBITMQ_SERVER_VERSION=3.5.7-1ubuntu0.16.04.2
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
-    apt-get install -y rabbitmq-server #TODO get version
+    apt-get install -y rabbitmq-server=$RABBITMQ_SERVER_VERSION
 
     # TODO
     # Add the openstack user
@@ -83,10 +87,10 @@ function install_mq() {
 }
 
 function install_memcached() {
-    MEMCACHED_VERSION=
-    PYTHON_MEMCACHE_VERSION=
+    MEMCACHED_VERSION=1.4.25-2ubuntu1.2
+    PYTHON_MEMCACHE_VERSION=1.57-1
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
-    apt-get install -y memcached python-memcache #TODO get version
+    apt-get install -y memcached=$MEMCACHED_VERSION python-memcache=PYTHON_MEMCACHE_VERSION
 
     # TODO
     # Edit the /etc/memcached.conf file
@@ -96,22 +100,61 @@ function install_memcached() {
 }
 
 function install_keystone() {
-    :
+    KEYSTONE_VERSION=2:10.0.2-0ubuntu1~cloud0
+    [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
+    apt-get install -y keystone=$KEYSTONE_VERSION
+
+    # TODO
+    # ?
+
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/keystone.html
 }
 
 function install_glance() {
-    :
+    GLANCE_VERSION=2:13.0.0-0ubuntu1~cloud0
+    [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
+    apt-get install -y glance=$GLANCE_VERSION
+
+    # TODO
+    # ?
+
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/glance.html
 }
 
 function install_neutron() {
-    :
-    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron.html
+    NEUTRON_SERVER_VERSION=2:9.4.0-0ubuntu1.1~cloud0
+    NEUTRON_PLUGIN_ML2_VERSION=2:9.4.0-0ubuntu1.1~cloud0
+    NEUTRON_OPENVSWITCH_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
+    NEUTRON_L3_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
+    NEUTRON_DHCP_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
+    NEUTRON_METADATA_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
+    [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
+    apt install -y neutron-server=$NEUTRON_SERVER_VERSION \
+                   neutron-plugin-ml2=$NEUTRON_PLUGIN_ML2_VERSION \
+                   neutron-openvswitch-agent=$NEUTRON_OPENVSWITCH_AGENT_VERSION \
+                   neutron-l3-agent=$NEUTRON_L3_AGENT_VERSION \
+                   neutron-dhcp-agent=$NEUTRON_DHCP_AGENT_VERSION \
+                   neutron-metadata-agent=$NEUTRON_METADATA_AGENT_VERSION
+
+    # TODO
+    # ?
+
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
+    # This reference uses neutron-linuxbridge-agent, but we need neutron-openvswitch-agent.
 }
 
 function install_nova() {
-    :
+    NOVA_API_VERSION=2:14.0.7-0ubuntu2~cloud0
+    NOVA_CONDUCTOR_VERSION=2:14.0.7-0ubuntu2~cloud0
+    NOVA_CONSOLEAUTH_VERSION=2:14.0.7-0ubuntu2~cloud0
+    NOVA_NOVNCPROXY_VERSION=2:14.0.7-0ubuntu2~cloud0
+    NOVA_SCHEDULER_VERSION=2:14.0.7-0ubuntu2~cloud0
+    [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
+    apt-get install -y nova-api=$NOVA_API_VERSION nova-conductor=$NOVA_CONDUCTOR_VERSION nova-consoleauth=$NOVA_CONSOLEAUTH_VERSION nova-novncproxy=$NOVA_NOVNCPROXY_VERSION nova-scheduler=$NOVA_SCHEDULER_VERSION
+
+    # TODO
+    # ?
+
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/nova.html
 }
 
