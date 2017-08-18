@@ -77,10 +77,28 @@ function install_sqldb() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y mariadb-server=$MARIADB_SERVER_VERSION python-pymysql=$PYTHON_PYMSQL_VERSION
 
-    # TODO
+    # # # # # # # # # # # # # # # # ## # # # # # # # # # # # # # # # # # # # # # # # # ## # # # # # # # #
+
     # Create and edit the /etc/mysql/mariadb.conf.d/99-openstack.cnf file
+    cat > /etc/mysql/mariadb.conf.d/99-openstack.cnf <<DATA
+[mysqld]
+bind-address = 0.0.0.0
+
+default-storage-engine = innodb
+innodb_file_per_table
+max_connections = 4096
+collation-server = utf8_general_ci
+character-set-server = utf8
+DATA
+
     # Restart the database service
+    service mysql restart
+
     # Secure the database service by running the mysql_secure_installation script
+    # skipped (root@localhost with no password by default)
+
+    # Log files
+    # /var/log/mysql/error.log
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-sql-database.html
 }
