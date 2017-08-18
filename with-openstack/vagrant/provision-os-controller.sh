@@ -52,7 +52,7 @@ function install_ntp() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y chrony=$CHRONY_VERSION
 
-    # # # # # # # # # # # # # # # # ## # # # # # # # # # # # # # # # # # # # # # # # # ## # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # To enable other nodes to connect
     echo "allow 172.18.161.0/24" >> /etc/chrony/chrony.conf
@@ -77,7 +77,7 @@ function install_sqldb() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y mariadb-server=$MARIADB_SERVER_VERSION python-pymysql=$PYTHON_PYMSQL_VERSION
 
-    # # # # # # # # # # # # # # # # ## # # # # # # # # # # # # # # # # # # # # # # # # ## # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Create and edit the /etc/mysql/mariadb.conf.d/99-openstack.cnf file
     # For development convenience, you can use 0.0.0.0 instead of the management IP address.
@@ -109,7 +109,7 @@ function install_mq() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y rabbitmq-server=$RABBITMQ_SERVER_VERSION
 
-    # # # # # # # # # # # # # # # # ## # # # # # # # # # # # # # # # # # # # # # # # # ## # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Add the openstack user
     rabbitmqctl add_user openstack RABBIT_PASS
@@ -132,7 +132,7 @@ function install_memcached() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y memcached=$MEMCACHED_VERSION python-memcache=$PYTHON_MEMCACHE_VERSION
 
-    # # # # # # # # # # # # # # # # ## # # # # # # # # # # # # # # # # # # # # # # # # ## # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Edit the /etc/memcached.conf file and configure the service to use the management IP address of the controller node.
     # For development convenience, you can use 0.0.0.0 instead of the management IP address.
@@ -152,8 +152,56 @@ function install_keystone() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y keystone=$KEYSTONE_VERSION
 
-    # TODO
-    # ?
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # Create the database
+    mysql <<DATA
+CREATE DATABASE keystone;
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'KEYSTONE_DBPASS';
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'KEYSTONE_DBPASS';
+DATA
+
+    # Edit the /etc/keystone/keystone.conf file
+    sed -i "s|^#provider = uuid|provider = fernet|" /etc/keystone/keystone.conf
+    sed -i "s|^connection = sqlite.*|connection = mysql+pymysql://keystone:KEYSTONE_DBPASS@os-controller/keystone|" /etc/keystone/keystone.conf
+
+    # Populate the database
+    su -s /bin/sh -c "keystone-manage db_sync" keystone
+
+    # Initialize Fernet key repositories
+    keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
+    keystone-manage credential_setup --keystone-user keystone --keystone-group keystone
+
+    # Bootstrap the Identity service
+    keystone-manage bootstrap --bootstrap-password ADMIN_PASS \
+                              --bootstrap-admin-url http://os-controller:35357/v3/ \
+                              --bootstrap-internal-url http://os-controller:35357/v3/ \
+                              --bootstrap-public-url http://os-controller:5000/v3/ \
+                              --bootstrap-region-id RegionOne
+
+    # Edit the /etc/apache2/apache2.conf file and configure the ServerName option to reference the controller node
+    echo "ServerName os-controller" >> /etc/apache2/apache2.conf 
+
+    # Restart the Apache service
+    service apache2 restart
+
+    # Remove the default SQLite database
+    rm -f /var/lib/keystone/keystone.db
+
+    # Veirfy operation
+    #OS_USERNAME=admin
+    #OS_PASSWORD=ADMIN_PASS
+    #OS_PROJECT_NAME=admin
+    #OS_USER_DOMAIN_NAME=Default
+    #OS_PROJECT_DOMAIN_NAME=Default
+    #OS_AUTH_URL=http://os-controller:35357/v3
+    #OS_IDENTITY_API_VERSION=3
+    #openstack token issue
+
+    # Log files
+    # /var/log/keystone/keystone-manage.log
+    # /var/log/apache2/keystone_access.log
+    # /var/log/apache2/keystone.log
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/keystone.html
 }
