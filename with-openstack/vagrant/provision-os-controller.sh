@@ -147,6 +147,35 @@ function install_memcached() {
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-memcached.html
 }
 
+function install_openstack_cli() {
+    PYTHON_OPENSTACKCLIENT_VERSION=3.2.0-0ubuntu2~cloud0
+    [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
+    apt install -y python-openstackclient=$PYTHON_OPENSTACKCLIENT_VERSION
+
+    cat > /root/admin-openrc <<DATA
+export OS_USERNAME=admin
+export OS_PASSWORD=ADMIN_PASS
+export OS_PROJECT_NAME=admin
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_AUTH_URL=http://os-controller:35357/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+DATA
+
+    cat > /root/demo-openrc <<DATA
+export OS_USERNAME=demo
+export OS_PASSWORD=DEMO_PASS
+export OS_PROJECT_NAME=demo
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_AUTH_URL=http://os-controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+DATA
+
+}
+
 function install_keystone() {
     KEYSTONE_VERSION=2:10.0.2-0ubuntu1~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
@@ -188,15 +217,20 @@ DATA
     # Remove the default SQLite database
     rm -f /var/lib/keystone/keystone.db
 
-    # Veirfy operation
-    #OS_USERNAME=admin
-    #OS_PASSWORD=ADMIN_PASS
-    #OS_PROJECT_NAME=admin
-    #OS_USER_DOMAIN_NAME=Default
-    #OS_PROJECT_DOMAIN_NAME=Default
-    #OS_AUTH_URL=http://os-controller:35357/v3
-    #OS_IDENTITY_API_VERSION=3
-    #openstack token issue
+    # Now can use admin token
+    source /root/admin-openrc
+    openstack token issue
+
+    # Now can use admin token to create more domains, projects, users, and roles
+    openstack project create --domain default --description "Service Project" service
+    openstack project create --domain default --description "Demo Project" demo
+    openstack user create --domain default --password DEMO_PASS demo
+    openstack role create user
+    openstack role add --project demo --user demo user
+
+    # For security reasons, disable the temporary authentication token mechanism
+    # Edit the /etc/keystone/keystone-paste.ini file and remove admin_token_auth from the [pipeline:public_api], [pipeline:admin_api], and [pipeline:api_v3] sections.
+    # skipped
 
     # Log files
     # /var/log/keystone/keystone-manage.log
@@ -211,8 +245,16 @@ function install_glance() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y glance=$GLANCE_VERSION
 
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # Create the database
+    mysql <<DATA
+CREATE DATABASE glance;
+GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY 'GLANCE_DBPASS';
+GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'GLANCE_DBPASS';
+DATA
+
     # TODO
-    # ?
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/glance.html
 }
@@ -270,6 +312,7 @@ function main() {
     install_sqldb
     install_mq
     install_memcached
+    install_openstack_cli
     install_keystone
     install_glance
     install_neutron
