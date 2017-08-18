@@ -90,7 +90,7 @@ function install_memcached() {
     MEMCACHED_VERSION=1.4.25-2ubuntu1.2
     PYTHON_MEMCACHE_VERSION=1.57-1
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
-    apt-get install -y memcached=$MEMCACHED_VERSION python-memcache=PYTHON_MEMCACHE_VERSION
+    apt-get install -y memcached=$MEMCACHED_VERSION python-memcache=$PYTHON_MEMCACHE_VERSION
 
     # TODO
     # Edit the /etc/memcached.conf file
