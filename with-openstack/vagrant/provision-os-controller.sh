@@ -278,7 +278,7 @@ DATA
     sed -i "s|^#connection = <None>|connection = mysql+pymysql://glance:GLANCE_DBPASS@os-controller/glance|" /etc/glance/glance-api.conf
 
     # Edit the /etc/glance/glance-api.conf file, [keystone_authtoken] section
-    # TODO
+    echo -e "auth_uri = http://os-controller:5000\nauth_url = http://os-controller:35357\nmemcached_servers = os-controller:11211\nauth_type = password\nproject_domain_name = Default\nuser_domain_name = Default\nproject_name = service\nusername = glance\npassword = GLANCE_PASS\n" | sed -i "/^\[keystone_authtoken\]/ r /dev/stdin" /etc/glance/glance-api.conf
 
     # Edit the /etc/glance/glance-api.conf file, [paste_deploy] section
     sed -i "s|#flavor = keystone|flavor = keystone|" /etc/glance/glance-api.conf
@@ -290,7 +290,7 @@ DATA
     sed -i "s|^#connection = <None>|connection = mysql+pymysql://glance:GLANCE_DBPASS@os-controller/glance|" /etc/glance/glance-registry.conf
 
     # Edit the /etc/glance/glance-registry.conf file, [keystone_authtoken] section
-    # TODO
+    echo -e "auth_uri = http://os-controller:5000\nauth_url = http://os-controller:35357\nmemcached_servers = os-controller:11211\nauth_type = password\nproject_domain_name = Default\nuser_domain_name = Default\nproject_name = service\nusername = glance\npassword = GLANCE_PASS\n" | sed -i "/^\[keystone_authtoken\]/ r /dev/stdin" /etc/glance/glance-registry.conf
 
     # Edit the /etc/glance/glance-registry.conf file, [paste_deploy] section
     sed -i "s|#flavor = keystone|flavor = keystone|" /etc/glance/glance-registry.conf
@@ -308,6 +308,7 @@ DATA
 
     source /root/admin-openrc
     openstack image create "cirros" --file $CACHE/cirros-0.3.4-x86_64-disk.img --disk-format qcow2 --container-format bare --public
+    openstack image list
 
     # LOG files
     # /var/log/glance/glance-api.log
