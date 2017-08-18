@@ -285,6 +285,13 @@ DATA
     service glance-registry restart
     service glance-api restart
 
+    # Now can use admin token to create images
+    [ -f $CACHE/cirros-0.3.4-x86_64-disk.img ] || \
+    wget -q http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img -O $CACHE/cirros-0.3.4-x86_64-disk.img
+
+    source /root/admin-openrc
+    openstack image create "cirros" --file $CACHE/cirros-0.3.4-x86_64-disk.img --disk-format qcow2 --container-format bare --public
+
     # LOG files
     # /var/log/glance/glance-api.log
     # /var/log/glance/glance-registry.log    
