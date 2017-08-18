@@ -124,17 +124,9 @@ function install_glance() {
 function install_neutron() {
     NEUTRON_SERVER_VERSION=2:9.4.0-0ubuntu1.1~cloud0
     NEUTRON_PLUGIN_ML2_VERSION=2:9.4.0-0ubuntu1.1~cloud0
-    NEUTRON_OPENVSWITCH_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
-    NEUTRON_L3_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
-    NEUTRON_DHCP_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
-    NEUTRON_METADATA_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt install -y neutron-server=$NEUTRON_SERVER_VERSION \
-                   neutron-plugin-ml2=$NEUTRON_PLUGIN_ML2_VERSION \
-                   neutron-openvswitch-agent=$NEUTRON_OPENVSWITCH_AGENT_VERSION \
-                   neutron-l3-agent=$NEUTRON_L3_AGENT_VERSION \
-                   neutron-dhcp-agent=$NEUTRON_DHCP_AGENT_VERSION \
-                   neutron-metadata-agent=$NEUTRON_METADATA_AGENT_VERSION
+                   neutron-plugin-ml2=$NEUTRON_PLUGIN_ML2_VERSION
 
     # TODO
     # ?
@@ -148,6 +140,14 @@ function install_neutron() {
     # This reference uses neutron-openvswitch-agent.
     # This reference is for VXLAN self-service networks.
     # This reference is for 3-nodes deployment.
+
+    # Reference http://www.unixarena.com/2015/10/openstack-configure-network-service-neutron-controller-part-6.html
+    # Reference http://www.unixarena.com/2015/10/openstack-configure-neutron-on-network-node-part-7.html
+    # Reference http://www.unixarena.com/2015/10/openstack-configure-neutron-on-compute-node-part-8.html
+    # This reference is for 3-nodes deployment.
+    # `apt-get install neutron-server neutron-plugin-ml2` # for controller node
+    # `apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent` # for network node
+    # `apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent` # for compute node
 }
 
 function install_nova() {
