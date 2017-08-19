@@ -407,6 +407,11 @@ function install_neutron() {
     # -> "Access from host running VirtualBox only (so useful for development/proof of concept)"
     # attach VM network adapter2 to "NAT".
     # -> "This will provide the default route to allow the VM to access the internet to get the updates, OpenStack scripts and software"
+
+    # http://godleon.blogspot.tw/2014/10/openstack-ubuntu-1404-5-networking.html
+    # This reference is for 3-nodes deployment.
+    # Use VMware instead of VirtualBox.
+    # Use "Promiscuous mode" on public network.
 }
 
 function install_nova() {
