@@ -14,7 +14,7 @@ OpenStack version used is this deployment is newton.
 
 # Note
 
-Each VirtualBox VM created by Vagrant has a NIC named "enp0s3" by default
+Each VirtualBox VM created by Vagrant has a NIC named "enp0s3" by default, which means that the first network interface (eth0 or enp0s3) is always managed by Vagrant and must be connected to a NAT network.
 
 * VirtualBox network adapter :: Attached to: NAT
 * VirtualBox network adapter :: Promiscuous mode: DENY
@@ -32,5 +32,5 @@ In this deployment, we add 4 NICs:
   * 10.0.3.0/24 preserved, not yet used
   * 10.0.4.0/24 preserved, not yet used
 
-Question: which one is used to be public network?
+Question: which one is used to be public network? adapter1 or adapter3?
 
