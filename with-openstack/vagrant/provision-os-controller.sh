@@ -424,8 +424,67 @@ function install_nova() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y nova-api=$NOVA_API_VERSION nova-conductor=$NOVA_CONDUCTOR_VERSION nova-consoleauth=$NOVA_CONSOLEAUTH_VERSION nova-novncproxy=$NOVA_NOVNCPROXY_VERSION nova-scheduler=$NOVA_SCHEDULER_VERSION
 
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # Create the database
+    mysql <<DATA
+CREATE DATABASE nova_api;
+GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'localhost' IDENTIFIED BY 'NOVA_DBPASS';
+GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';
+CREATE DATABASE nova;
+GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'NOVA_DBPASS';
+GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';
+DATA
+
+    # Create the user
+    source /root/admin-openrc
+    openstack user create --domain default --password NOVA_PASS nova
+
+    # Associate the user with the admin role and the service project
+    source /root/admin-openrc
+    openstack role add --project service --user nova admin
+
+    # Create the service entity
+    source /root/admin-openrc
+    openstack service create --name nova --description "OpenStack Compute" compute
+
+    # Create the service api endpoint
+    source /root/admin-openrc
+    openstack endpoint create --region RegionOne compute public http://os-controller:8774/v2.1/%\(tenant_id\)s
+    openstack endpoint create --region RegionOne compute internal http://os-controller:8774/v2.1/%\(tenant_id\)s
+    openstack endpoint create --region RegionOne compute admin http://os-controller:8774/v2.1/%\(tenant_id\)s
+
+    # Edit the /etc/nova/nova.conf file, [api_database] section
     # TODO
-    # ?
+
+    # Edit the /etc/nova/nova.conf file, [database] section
+    # TODO
+
+    # Edit the /etc/nova/nova.conf file, [DEFAULT] section
+    # TODO
+
+    # Edit the /etc/nova/nova.conf file, [keystone_authtoken] section
+    # TODO
+
+    # Edit the /etc/nova/nova.conf file, [vnc] section
+    # TODO
+
+    # Edit the /etc/nova/nova.conf file, [glance] section
+    # TODO
+
+    # Edit the /etc/nova/nova.conf file, [oslo_concurrency] section
+    # TODO
+
+    # Populate the database
+    su -s /bin/sh -c "nova-manage api_db sync" nova
+    su -s /bin/sh -c "nova-manage db sync" nova
+
+    # Restart the Compute services
+    service nova-api restart
+    service nova-consoleauth restart
+    service nova-scheduler restart
+    service nova-conductor restart
+    service nova-novncproxy restart
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/nova.html
 }
@@ -442,7 +501,7 @@ function main() {
     install_openstack_cli
     install_keystone
     install_glance
-    install_neutron
     install_nova
+    install_neutron
 }
 main
