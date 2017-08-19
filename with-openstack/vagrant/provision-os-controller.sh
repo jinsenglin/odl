@@ -515,6 +515,13 @@ DATA
     service nova-conductor restart
     service nova-novncproxy restart
 
+    # Log files
+    # /var/log/nova/nova-api.log
+    # /var/log/nova/nova-conductor.log
+    # /var/log/nova/nova-consoleauth.log
+    # /var/log/nova/nova-novncproxy.log
+    # /var/log/nova/nova-scheduler.log
+
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/nova.html
 }
 

@@ -93,8 +93,61 @@ function install_nova() {
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y nova-api=$NOVA_COMPUTE_VERSION
 
-    # TODO
-    # ?
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # Edit the /etc/nova/nova.conf file, [DEFAULT] section
+    sed -i "/^\[DEFAULT\]$/ a transport_url = rabbit://openstack:RABBIT_PASS@os-controller" /etc/nova/nova.conf
+    sed -i "/^\[DEFAULT\]$/ a auth_strategy = keystone" /etc/nova/nova.conf
+    sed -i "/^\[DEFAULT\]$/ a my_ip = $ENV_MGMT_OS_COMPUTE_IP" /etc/nova/nova.conf
+    sed -i "/^\[DEFAULT\]$/ a use_neutron = True" /etc/nova/nova.conf
+    sed -i "/^\[DEFAULT\]$/ a firewall_driver = nova.virt.firewall.NoopFirewallDriver" /etc/nova/nova.conf
+
+    # Edit the /etc/nova/nova.conf file, [keystone_authtoken] section
+    cat >> /etc/nova/nova.conf <<DATA
+
+[keystone_authtoken]
+auth_uri = http://os-controller:5000
+auth_url = http://os-controller:35357
+memcached_servers = os-controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = nova
+password = NOVA_PASS
+DATA
+
+    # Edit the /etc/nova/nova.conf file, [vnc] section
+    cat >> /etc/nova/nova.conf <<DATA
+
+[vnc]
+enabled = True
+vncserver_listen = 0.0.0.0
+vncserver_proxyclient_address = $ENV_MGMT_OS_COMPUTE_IP
+novncproxy_base_url = http://os-controller:6080/vnc_auto.html
+DATA
+
+    # Edit the /etc/nova/nova.conf file, [glance] section
+    cat >> /etc/nova/nova.conf <<DATA
+
+[glance]
+api_servers = http://os-controller:9292
+DATA
+
+    # Edit the /etc/nova/nova.conf file, [oslo_concurrency] section
+    sed -i "/^lock_path=/ d" /etc/nova/nova.conf
+    sed -i "/^\[oslo_concurrency\]$/ a lock_path = /var/lib/nova/tmp" /etc/nova/nova.conf
+
+    # Edit the /etc/nova/nova.conf file, [libvirt] section
+    sed -i "/^\[libvirt\]$/ a virt_type = qemu" /etc/nova/nova.conf
+
+    # Restart the Compute service
+    service nova-compute restart
+
+    # Log files
+    # /var/log/nova/nova-compute.log
+
+    # TODO: Failed to restart nova-compute.service: Unit nova-compute.service not found.
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/nova-compute-install.html
 }
