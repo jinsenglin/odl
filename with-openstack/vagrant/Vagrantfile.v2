@@ -7,14 +7,17 @@ Vagrant.configure("2") do |config|
     d.vm.box_version = BOX_VERSION
     d.vm.box_check_update = false
     d.vm.hostname = "os-controller"
-    d.vm.network "private_network", ip: "172.18.161.101"
-    d.vm.network "private_network", ip: "172.18.161.101"
-    d.vm.network "private_network", ip: "172.18.161.101"
-    d.vm.network "private_network", ip: "172.18.161.101"
+    d.vm.network "private_network", ip: "10.0.0.11"
+    d.vm.network "private_network", ip: "10.0.1.11"
+    d.vm.network "private_network", ip: "10.0.3.11"
+    d.vm.network "private_network", ip: "10.0.4.11"
     d.vm.provider "virtualbox" do |p|
       p.cpus = "2"
       p.memory = "4096"
-      #p.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc4", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc5", "allow-all"]
     end
     d.vm.provision "shell", path: "provision-os-controller.sh"
   end
@@ -24,14 +27,17 @@ Vagrant.configure("2") do |config|
     d.vm.box_version = BOX_VERSION
     d.vm.box_check_update = false
     d.vm.hostname = "os-network"
-    d.vm.network "private_network", ip: "172.18.161.102"
-    d.vm.network "private_network", ip: "172.18.161.102"
-    d.vm.network "private_network", ip: "172.18.161.102"
-    d.vm.network "private_network", ip: "172.18.161.102"
+    d.vm.network "private_network", ip: "10.0.0.21"
+    d.vm.network "private_network", ip: "10.0.1.21"
+    d.vm.network "private_network", ip: "10.0.3.21"
+    d.vm.network "private_network", ip: "10.0.4.21"
     d.vm.provider "virtualbox" do |p|
       p.cpus = "1"
       p.memory = "2048"
-      #p.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc4", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc5", "allow-all"]
     end
     d.vm.provision "shell", path: "provision-os-network.sh"
   end
@@ -41,14 +47,17 @@ Vagrant.configure("2") do |config|
     d.vm.box_version = BOX_VERSION
     d.vm.box_check_update = false
     d.vm.hostname = "os-compute"
-    d.vm.network "private_network", ip: "172.18.161.103"
-    d.vm.network "private_network", ip: "172.18.161.103"
-    d.vm.network "private_network", ip: "172.18.161.103"
-    d.vm.network "private_network", ip: "172.18.161.103"
+    d.vm.network "private_network", ip: "10.0.0.31"
+    d.vm.network "private_network", ip: "10.0.1.31"
+    d.vm.network "private_network", ip: "10.0.3.31"
+    d.vm.network "private_network", ip: "10.0.4.31"
     d.vm.provider "virtualbox" do |p|
       p.cpus = "2"
       p.memory = "4096"
-      #p.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc4", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc5", "allow-all"]
     end
     d.vm.provision "shell", path: "provision-os-compute.sh"
   end
@@ -58,14 +67,17 @@ Vagrant.configure("2") do |config|
     d.vm.box_version = BOX_VERSION
     d.vm.box_check_update = false
     d.vm.hostname = "odl-controller"
-    d.vm.network "private_network", ip: "172.18.161.104"
-    d.vm.network "private_network", ip: "172.18.161.104"
-    d.vm.network "private_network", ip: "172.18.161.104"
-    d.vm.network "private_network", ip: "172.18.161.104"
+    d.vm.network "private_network", ip: "10.0.0.41"
+    d.vm.network "private_network", ip: "10.0.1.41"
+    d.vm.network "private_network", ip: "10.0.3.41"
+    d.vm.network "private_network", ip: "10.0.4.41"
     d.vm.provider "virtualbox" do |p|
       p.cpus = "2"
       p.memory = "4096"
-      #p.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc4", "allow-all"]
+      p.customize ["modifyvm", :id, "--nicpromisc5", "allow-all"]
     end
     d.vm.provision "shell", path: "provision-odl-controller.sh"
   end

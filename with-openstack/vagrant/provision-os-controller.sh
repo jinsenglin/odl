@@ -330,6 +330,8 @@ function install_neutron() {
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
     # This reference is for 2-nodes deployment (one controller, one compute), but we need 3-nodes deployment (one controller, one network, one compute).
     # This reference uses neutron-linuxbridge-agent, but we need neutron-openvswitch-agent.
+    # This reference uses FLAT provider networks.
+    # This reference uses VXLAN self-service networks.
     # `apt-get install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent` # for controller node
     # `apt-get install neutron-linuxbridge-agent` # for compute node
 
