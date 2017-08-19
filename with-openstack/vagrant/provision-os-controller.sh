@@ -455,25 +455,54 @@ DATA
     openstack endpoint create --region RegionOne compute admin http://os-controller:8774/v2.1/%\(tenant_id\)s
 
     # Edit the /etc/nova/nova.conf file, [api_database] section
-    # TODO
+    sed -i "/^connection=/ d" /etc/nova/nova.conf
+    sed -i "/^\[api_database\]$/ a connection = mysql+pymysql://nova:NOVA_DBPASS@os-controller/nova_api" /etc/nova/nova.conf
 
     # Edit the /etc/nova/nova.conf file, [database] section
-    # TODO
+    sed -i "/^connection=/ d" /etc/nova/nova.conf
+    sed -i "/^\[database\]$/ a connection = mysql+pymysql://nova:NOVA_DBPASS@os-controller/nova" /etc/nova/nova.conf
 
     # Edit the /etc/nova/nova.conf file, [DEFAULT] section
-    # TODO
+    sed -i "/^\[DEFAULT\]$/ a transport_url = rabbit://openstack:RABBIT_PASS@os-controller" /etc/nova/nova.conf
+    sed -i "/^\[DEFAULT\]$/ a auth_strategy = keystone" /etc/nova/nova.conf
+    sed -i "/^\[DEFAULT\]$/ a my_ip = $ENV_MGMT_OS_CONTROLLER_IP" /etc/nova/nova.conf
+    sed -i "/^\[DEFAULT\]$/ a use_neutron = True" /etc/nova/nova.conf
+    sed -i "/^\[DEFAULT\]$/ a firewall_driver = nova.virt.firewall.NoopFirewallDriver" /etc/nova/nova.conf
+    sed -i "/^log-dir=/ d" /etc/nova/nova.conf
 
     # Edit the /etc/nova/nova.conf file, [keystone_authtoken] section
-    # TODO
+    cat >> /etc/nova/nova.conf <<DATA
+
+[keystone_authtoken]
+auth_uri = http://os-controller:5000
+auth_url = http://os-controller:35357
+memcached_servers = os-controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = nova
+password = NOVA_PASS
+DATA
 
     # Edit the /etc/nova/nova.conf file, [vnc] section
-    # TODO
+    cat >> /etc/nova/nova.conf <<DATA
+
+[vnc]
+vncserver_listen = $ENV_MGMT_OS_CONTROLLER_IP
+vncserver_proxyclient_address = $ENV_MGMT_OS_CONTROLLER_IP
+DATA
 
     # Edit the /etc/nova/nova.conf file, [glance] section
-    # TODO
+    cat >> /etc/nova/nova.conf <<DATA
+
+[glance]
+api_servers = http://os-controller:9292
+DATA
 
     # Edit the /etc/nova/nova.conf file, [oslo_concurrency] section
-    # TODO
+    sed -i "/^lock_path=/ d" /etc/nova/nova.conf
+    sed -i "/^\[oslo_concurrency\]$/ a lock_path = /var/lib/nova/tmp" /etc/nova/nova.conf
 
     # Populate the database
     su -s /bin/sh -c "nova-manage api_db sync" nova
