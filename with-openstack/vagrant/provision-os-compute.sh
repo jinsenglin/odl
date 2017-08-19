@@ -91,7 +91,7 @@ function install_ntp() {
 function install_nova() {
     NOVA_COMPUTE_VERSION=2:14.0.7-0ubuntu2~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
-    apt-get install -y nova-api=$NOVA_COMPUTE_VERSION
+    apt-get install -y nova-compute=$NOVA_COMPUTE_VERSION
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -146,8 +146,6 @@ DATA
 
     # Log files
     # /var/log/nova/nova-compute.log
-
-    # TODO: Failed to restart nova-compute.service: Unit nova-compute.service not found.
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/nova-compute-install.html
 }
