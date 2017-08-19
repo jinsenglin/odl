@@ -14,7 +14,7 @@ OpenStack version used is this deployment is newton.
 
 # Note
 
-Each VirtualBox VM by default has a NIC named "enp0s3"
+Each VirtualBox VM created by Vagrant has a NIC named "enp0s3" by default
 
 * VirtualBox network adapter :: Attached to: NAT
 * VirtualBox network adapter :: Promiscuous mode: DENY

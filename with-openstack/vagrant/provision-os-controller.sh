@@ -373,6 +373,40 @@ function install_neutron() {
     # `apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent` # for network node
     # `apt-get install neutron-plugin-openvswitch-agent` # for compute node
 
+    # Reference http://www.madorn.com/virtualbox-liberty-install-guide.html#.WZgT85Og_BI
+    # This reference details how to use VirtualBox network adapters for OpenStack installation
+    # Create a "NAT Networks" named management for management network, CIDR 10.0.0.0/24. Check "Supports DHCP"
+    # -> attach VM network adapter1 to this network.
+    # Create a "NAT Networks" named public for public network, CIDR 203.0.113.0/24. Uncheck "Supports DHCP". The GW will be 203.0.113.1
+    # -> attach VM network adapter2 to this network.
+    # No mention about "Promiscuous mode".
+
+    # Reference http://www.innervoice.in/blogs/2015/06/14/virtualbox-networking-settings-for-openstack/
+    # This reference details how to use VirtualBox network adapters for OpenStack installation
+    # This reference is for 2-nodes deployment.
+    # Attach VM network adapter1 to "HOST-ONLY" for management network.
+    # Attach VM network adapter2 to "HOST-ONLY" for public network.
+    # -> "For external network Host-only is sufficient. If the OpenStack VMs are able to reach the Host, then the objective of external network is achieved. But you can also use NAT."
+    # Attach VM network adapter3 to "NAT". (Additional interface)
+    # -> "This adapter provides Internet access to the nodes to download packages etc."
+    # -> "But the VM instances also need Internet access. So I recommend an additional interface of type NAT just to accomplish that."
+    # "Tip: it is important to enable Promiscuous mode on data network".
+
+    # Reference https://developer.ibm.com/recipes/tutorials/newton-openstack-installation-on-centos7-inside-the-virtualbox/
+    # This reference details how to use VirtualBox network adapters for OpenStack installation
+    # This reference is for 2-nodes deployment.
+    # Attach VM network adapter1 to "HOST-ONLY" for management network.
+    # Attach VM network adapter2 to "NAT" for public network.
+    # No mention about "Promiscuous mode".
+
+    # https://uksysadmin.wordpress.com/2011/02/17/running-openstack-under-virtualbox-a-complete-guide/
+    # This reference details how to use VirtualBox network adapters for OpenStack installation
+    # This reference is for 1-nodes deployment.
+    # Create a "HOST-ONLY Networks" named public for public network, CIDR 172.241.0.100/28. Uncheck "Supports DHCP".
+    # -> attach VM network adapter1 to this network.
+    # -> "Access from host running VirtualBox only (so useful for development/proof of concept)"
+    # attach VM network adapter2 to "NAT".
+    # -> "This will provide the default route to allow the VM to access the internet to get the updates, OpenStack scripts and software"
 }
 
 function install_nova() {
