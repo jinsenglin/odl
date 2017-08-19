@@ -2,6 +2,12 @@
 
 set -e
 
+ENV_MGMT_NETWORK="10.0.0.0/24"
+ENV_MGMT_OS_CONTROLLER_IP="10.0.0.11"
+ENV_MGMT_OS_NETWORK_IP="10.0.0.21"
+ENV_MGMT_OS_COMPUTE_IP="10.0.0.31"
+ENV_MGMT_ODL_CONTROLLER_IP="10.0.0.41"
+
 LOG=/tmp/provision.log
 date | tee $LOG            # when:  Thu Aug 10 07:48:13 UTC 2017
 whoami | tee -a $LOG       # who:   root
@@ -9,6 +15,14 @@ pwd | tee -a $LOG          # where: /home/ubuntu
 
 CACHE=/vagrant/cache
 [ -d $CACHE ] || mkdir -p $CACHE 
+
+function use_public_apt_server() {
+    apt install -y software-properties-common
+    add-apt-repository cloud-archive:newton
+    apt-get update && APT_UPDATED=true
+
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-packages.html
+}
 
 function use_local_apt_server() {
     cat > /etc/apt/sources.list <<DATA
@@ -23,6 +37,43 @@ deb http://192.168.240.3/ubuntu xenial-security universe
 deb http://192.168.240.3/ubuntu xenial-security multiverse
 deb http://192.168.240.3/ubuntu-cloud-archive xenial-updates/newton main
 DATA
+}
+
+function each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address() {
+    cat >> /etc/hosts <<DATA
+$ENV_MGMT_OS_CONTROLLER_IP os-controller
+$ENV_MGMT_OS_NETWORK_IP os-network
+$ENV_MGMT_OS_COMPUTE_IP os-compute
+$ENV_MGMT_ODL_CONTROLLER_IP odl-controller
+DATA
+
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-networking.html
+}
+
+function install_ntp() {
+    CHRONY_VERSION=2.1.1-1
+    [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
+    apt-get install -y chrony=$CHRONY_VERSION
+
+    # # # # # # # # # # # # # # # # ## # # # # # # # # # # # # # # # # # # # # # # # # ## # # # # # # # #
+
+    # To connect to the os-controller node
+    sed -i "s/^pool /#pool /g" /etc/chrony/chrony.conf
+    sed -i "s/^server /#server /g" /etc/chrony/chrony.conf
+    echo "server os-controller iburst" >> /etc/chrony/chrony.conf
+
+    # Restart the NTP service
+    chronyc sources
+
+    # Verify operation
+    chronyc sources
+
+    # Log files
+    # /var/log/chrony/measurements.log
+    # /var/log/chrony/statistics.log
+    # /var/log/chrony/tracking.log
+
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-ntp-other.html
 }
 
 function install_jdk() {
@@ -46,6 +97,9 @@ function install_odl() {
 
 function main() {
     :
+    #use_local_apt_server
+    #each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address
+    #install_ntp
     #use_local_apt_server
     #install_odl
 }

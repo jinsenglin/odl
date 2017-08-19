@@ -2,6 +2,12 @@
 
 set -e
 
+ENV_MGMT_NETWORK="10.0.0.0/24"
+ENV_MGMT_OS_CONTROLLER_IP="10.0.0.11"
+ENV_MGMT_OS_NETWORK_IP="10.0.0.21"
+ENV_MGMT_OS_COMPUTE_IP="10.0.0.31"
+ENV_MGMT_ODL_CONTROLLER_IP="10.0.0.41"
+
 LOG=/tmp/provision.log
 date | tee $LOG            # when:  Thu Aug 10 07:48:13 UTC 2017
 whoami | tee -a $LOG       # who:   root
@@ -9,6 +15,14 @@ pwd | tee -a $LOG          # where: /home/ubuntu
 
 CACHE=/vagrant/cache
 [ -d $CACHE ] || mkdir -p $CACHE 
+
+function use_public_apt_server() {
+    apt install -y software-properties-common
+    add-apt-repository cloud-archive:newton
+    apt-get update && APT_UPDATED=true
+
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-packages.html
+}
 
 function use_local_apt_server() {
     cat > /etc/apt/sources.list <<DATA
@@ -31,14 +45,15 @@ DATA
 
 function each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address() {
     cat >> /etc/hosts <<DATA
-172.18.161.101 os-controller
-172.18.161.102 os-network
-172.18.161.103 os-compute
-172.18.161.104 odl-controller
+$ENV_MGMT_OS_CONTROLLER_IP os-controller
+$ENV_MGMT_OS_NETWORK_IP os-network
+$ENV_MGMT_OS_COMPUTE_IP os-compute
+$ENV_MGMT_ODL_CONTROLLER_IP odl-controller
 DATA
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-networking.html
 }
+
 
 function install_python() {
     PYTHON_VERSION=2.7.11-1
@@ -93,27 +108,7 @@ function install_neutron() {
 
     # TODO
     # ?
-
-    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
-    # This reference uses neutron-linuxbridge-agent, but we need neutron-openvswitch-agent.
-    # This reference is for 2-nodes deployment (one controller, one compute), but we need 3-nodes deployment (one controller, one network, one compute).
-
-    # Reference https://docs.openstack.org/neutron/pike/admin/deploy-ovs-selfservice.html
-    # This reference is for pike version, but we need newton version.
-    # This reference uses neutron-openvswitch-agent.
-    # This reference is for VXLAN self-service networks.
-    # This reference is for 3-nodes deployment.
-
-    # Reference http://www.unixarena.com/2015/10/openstack-configure-network-service-neutron-controller-part-6.html
-    # Reference http://www.unixarena.com/2015/10/openstack-configure-neutron-on-network-node-part-7.html
-    # Reference http://www.unixarena.com/2015/10/openstack-configure-neutron-on-compute-node-part-8.html
-    # This reference is for 3-nodes deployment.
-    # `apt-get install neutron-server neutron-plugin-ml2` # for controller node
-    # `apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent` # for network node
-    # `apt-get install neutron-plugin-ml2 neutron-plugin-openvswitch-agent` # for compute node
-
 }
-
 
 function main() {
     :
