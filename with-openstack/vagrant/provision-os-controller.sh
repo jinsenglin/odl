@@ -2,6 +2,12 @@
 
 set -e
 
+ENV_MGMT_NETWORK="10.0.0.0/24"
+ENV_MGMT_OS_CONTROLLER_IP="10.0.0.11"
+ENV_MGMT_OS_NETWORK_IP="10.0.0.21"
+ENV_MGMT_OS_COMPUTE_IP="10.0.0.31"
+ENV_MGMT_ODL_CONTROLLER_IP="10.0.0.41"
+
 LOG=/tmp/provision.log
 date | tee $LOG            # when:  Thu Aug 10 07:48:13 UTC 2017
 whoami | tee -a $LOG       # who:   root
@@ -9,6 +15,14 @@ pwd | tee -a $LOG          # where: /home/ubuntu
 
 CACHE=/vagrant/cache
 [ -d $CACHE ] || mkdir -p $CACHE 
+
+function use_public_apt_server() {
+    apt install -y software-properties-common
+    add-apt-repository cloud-archive:newton
+    apt-get update && APT_UPDATED=true
+
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-packages.html
+}
 
 function use_local_apt_server() {
     cat > /etc/apt/sources.list <<DATA
@@ -31,10 +45,10 @@ DATA
 
 function each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address() {
     cat >> /etc/hosts <<DATA
-172.18.161.101 os-controller
-172.18.161.102 os-network
-172.18.161.103 os-compute
-172.18.161.104 odl-controller
+$ENV_MGMT_OS_CONTROLLER_IP os-controller
+$ENV_MGMT_OS_NETWORK_IP os-network
+$ENV_MGMT_OS_COMPUTE_IP os-compute
+$ENV_MGMT_ODL_CONTROLLER_IP odl-controller
 DATA
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-networking.html
@@ -55,7 +69,7 @@ function install_ntp() {
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # To enable other nodes to connect
-    echo "allow 172.18.161.0/24" >> /etc/chrony/chrony.conf
+    echo "allow $ENV_MGMT_NETWORK" >> /etc/chrony/chrony.conf
 
     # Restart the NTP service
     service chrony restart
@@ -83,7 +97,7 @@ function install_sqldb() {
     # For development convenience, you can use 0.0.0.0 instead of the management IP address.
     cat > /etc/mysql/mariadb.conf.d/99-openstack.cnf <<DATA
 [mysqld]
-bind-address = 172.18.161.101
+bind-address = $ENV_MGMT_OS_CONTROLLER_IP
 
 default-storage-engine = innodb
 innodb_file_per_table
@@ -136,7 +150,7 @@ function install_memcached() {
 
     # Edit the /etc/memcached.conf file and configure the service to use the management IP address of the controller node.
     # For development convenience, you can use 0.0.0.0 instead of the management IP address.
-    sed -i "s/-l 127.0.0.1/-l 172.18.161.101/" /etc/memcached.conf
+    sed -i "s/-l 127.0.0.1/-l $ENV_MGMT_OS_CONTROLLER_IP/" /etc/memcached.conf
 
     # Restart the Memcached service
     service memcached restart

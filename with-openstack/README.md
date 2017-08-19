@@ -6,6 +6,11 @@
 * mechanism_drivers: openvswitch,l2population
 
 ---
+# Note
+
+OpenStack version used is this deployment is newton.
+
+---
 
 # Note
 
@@ -26,3 +31,6 @@ In this deployment, we add 4 NICs:
   * 10.0.1.0/24 for tunnel network
   * 10.0.3.0/24 preserved, not yet used
   * 10.0.4.0/24 preserved, not yet used
+
+Question: which one is used to be public network?
+
