@@ -11,7 +11,7 @@ ENV_MGMT_ODL_CONTROLLER_IP="10.0.0.41"
 LOG=/tmp/provision.log
 date | tee $LOG            # when:  Thu Aug 10 07:48:13 UTC 2017
 whoami | tee -a $LOG       # who:   root
-pwd | tee -a $LOG          # where: /home/ubuntu
+pwd | tee -a $LOG          # where: /home/vagrant
 
 CACHE=/vagrant/cache
 [ -d $CACHE ] || mkdir -p $CACHE 
