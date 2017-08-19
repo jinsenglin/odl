@@ -321,6 +321,7 @@ DATA
     wget -q http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img -O $CACHE/cirros-0.3.4-x86_64-disk.img
 
     source /root/admin-openrc
+    for i in $(seq 1 3); do sleep 1; openstack image list && break; done # at most retry 3 times to ensure image api ready, and wait 1 second between each retry.
     openstack image create "cirros" --file $CACHE/cirros-0.3.4-x86_64-disk.img --disk-format qcow2 --container-format bare --public
     openstack image list
 
