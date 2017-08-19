@@ -75,7 +75,7 @@ function install_ntp() {
     echo "server os-controller iburst" >> /etc/chrony/chrony.conf
 
     # Restart the NTP service
-    chronyc sources
+    service chrony restart
 
     # Verify operation
     chronyc sources
