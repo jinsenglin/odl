@@ -159,6 +159,11 @@ function install_neutron() {
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+    # Edit the /etc/sysctl.conf
+    # not mentioned in https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install-option2.html
+    # mentioned in https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
+    # TODO
+
     # Edit the /etc/neutron/neutron.conf file, [database] section
     # TODO
 
@@ -168,13 +173,18 @@ function install_neutron() {
     # Edit the /etc/neutron/neutron.conf file, [keystone_authtoken] section
     # TODO
 
-    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [linux_bridge] section
+    # Edit the /etc/neutron/neutron.conf file, [oslo_messaging_rabbit] section
+    # not mentioned in https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install-option2.html
+    # mentioned in https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
     # TODO
 
-    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [vxlan] section
+    # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [ovs] section
     # TODO
 
-    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [securitygroup] section
+    # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [agent] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [securitygroup] section
     # TODO
 
     # Edit the /etc/nova/nova.conf file, [neutron] section
@@ -183,8 +193,9 @@ function install_neutron() {
     # Restart the Compute service
     service nova-compute restart
 
-    # Restart the Linux bridge agent
-    service neutron-linuxbridge-agent restart
+    # Restart the Networking services
+    service openvswitch-switch restart
+    service neutron-openvswitch-agent restart
 
     # Log files
     # TODO

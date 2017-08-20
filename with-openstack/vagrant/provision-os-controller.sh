@@ -378,6 +378,11 @@ DATA
     # Edit the /etc/neutron/neutron.conf file, [nova] section
     # TODO
 
+    # Edit the /etc/neutron/neutron.conf file, [oslo_messaging_rabbit] section
+    # not mentioned in https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
+    # mentioned in https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#controller-node
+    # TODO
+
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2] section
     # TODO
 
@@ -388,24 +393,6 @@ DATA
     # TODO
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [securitygroup] section
-    # TODO
-
-    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [linux_bridge] section
-    # TODO
-
-    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [vxlan] section
-    # TODO
-
-    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [securitygroup] section
-    # TODO
-
-    # Edit the /etc/neutron/l3_agent.ini file, [DEFAULT] section
-    # TODO
-
-    # Edit the /etc/neutron/dhcp_agent.ini file, [DEFAULT] section
-    # TODO
-
-    # Edit the /etc/neutron/metadata_agent.ini file, [DEFAULT] section
     # TODO
 
     # Edit the /etc/nova/nova.conf file, [neutron] section
@@ -419,10 +406,6 @@ DATA
 
     # Restart the Networking services
     service neutron-server restart
-    service neutron-linuxbridge-agent restart
-    service neutron-dhcp-agent restart
-    service neutron-metadata-agent restart
-    service neutron-l3-agent restart
 
     # Verify operation
     #source /root/admin-openrc

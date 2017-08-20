@@ -102,6 +102,11 @@ function install_neutron() {
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+    # Edit the /etc/sysctl.conf
+    # not mentioned in https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
+    # mentioned in https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    # TODO
+
     # Edit the /etc/neutron/neutron.conf file, [database] section
     # TODO
 
@@ -111,7 +116,9 @@ function install_neutron() {
     # Edit the /etc/neutron/neutron.conf file, [keystone_authtoken] section
     # TODO
 
-    # Edit the /etc/neutron/neutron.conf file, [nova] section
+    # Edit the /etc/neutron/neutron.conf file, [oslo_messaging_rabbit] section
+    # not mentioned in https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
+    # mentioned in https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#controller-node
     # TODO
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2] section
@@ -126,13 +133,13 @@ function install_neutron() {
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [securitygroup] section
     # TODO
 
-    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [linux_bridge] section
+    # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [ovs] section
     # TODO
 
-    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [vxlan] section
+    # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [agent] section
     # TODO
 
-    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [securitygroup] section
+    # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [securitygroup] section
     # TODO
 
     # Edit the /etc/neutron/l3_agent.ini file, [DEFAULT] section
@@ -141,10 +148,13 @@ function install_neutron() {
     # Edit the /etc/neutron/dhcp_agent.ini file, [DEFAULT] section
     # TODO
 
+    # Create the /etc/neutron/dnsmasq-neutron.conf file to adjust MTU
+    # TODO
+
     # Edit the /etc/neutron/metadata_agent.ini file, [DEFAULT] section
     # TODO
 
-    # Edit the /etc/nova/nova.conf file, [neutron] section
+    # Configure OVS
     # TODO
 
     # Restart the Networking services
