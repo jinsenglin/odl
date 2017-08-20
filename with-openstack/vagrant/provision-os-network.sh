@@ -8,6 +8,12 @@ ENV_MGMT_OS_NETWORK_IP="10.0.0.21"
 ENV_MGMT_OS_COMPUTE_IP="10.0.0.31"
 ENV_MGMT_ODL_CONTROLLER_IP="10.0.0.41"
 
+ENV_TUNNEL_NETWORK="10.0.1.0/24"
+ENV_TUNNEL_OS_CONTROLLER_IP="10.0.1.11"
+ENV_TUNNEL_OS_NETWORK_IP="10.0.1.21"
+ENV_TUNNEL_OS_COMPUTE_IP="10.0.1.31"
+ENV_TUNNEL_ODL_CONTROLLER_IP="10.0.1.41"
+
 LOG=/tmp/provision.log
 date | tee $LOG            # when:  Thu Aug 10 07:48:13 UTC 2017
 whoami | tee -a $LOG       # who:   root
@@ -103,56 +109,73 @@ function install_neutron() {
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Edit the /etc/sysctl.conf
-    # not mentioned in https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
-    # mentioned in https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
     # TODO
 
     # Edit the /etc/neutron/neutron.conf file, [database] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    sed -i "s|^connection = |#connection = |" /etc/neutron/neutron.conf
 
     # Edit the /etc/neutron/neutron.conf file, [DEFAULT] section
-    # TODO
+    sed -i "/^\[DEFAULT\]$/ a service_plugins = router" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a allow_overlapping_ips = True" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a transport_url = rabbit://openstack:RABBIT_PASS@os-controller" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a auth_strategy = keystone" /etc/neutron/neutron.conf
 
     # Edit the /etc/neutron/neutron.conf file, [keystone_authtoken] section
-    # TODO
-
-    # Edit the /etc/neutron/neutron.conf file, [oslo_messaging_rabbit] section
-    # not mentioned in https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
-    # mentioned in https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#controller-node
-    # TODO
+    echo -e "auth_uri = http://os-controller:5000\nauth_url = http://os-controller:35357\nmemcached_servers = os-controller:11211\nauth_type = password\nproject_domain_name = Default\nuser_domain_name = Default\nproject_name = service\nusername = neutron\npassword = NEUTRON_PASS\n" | sed -i "/^\[keystone_authtoken\]/ r /dev/stdin" /etc/neutron/neutron.conf
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2] section
-    # TODO
+    sed -i "/^\[ml2\]$/ a type_drivers = flat,vlan,vxlan" /etc/neutron/plugins/ml2/ml2_conf.ini
+    sed -i "/^\[ml2\]$/ a tenant_network_types = vxlan" /etc/neutron/plugins/ml2/ml2_conf.ini
+    sed -i "/^\[ml2\]$/ a mechanism_drivers = openvswitch,l2population" /etc/neutron/plugins/ml2/ml2_conf.ini
+    sed -i "/^\[ml2\]$/ a extension_drivers = port_security" /etc/neutron/plugins/ml2/ml2_conf.ini
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2_type_flat] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    sed -i "/^\[ml2_type_flat\]$/ a flat_networks = external" /etc/neutron/plugins/ml2/ml2_conf.ini
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2_type_vxlan] section
-    # TODO
+    sed -i "/^\[ml2_type_vxlan\]$/ a vni_ranges = 1:1000" /etc/neutron/plugins/ml2/ml2_conf.ini
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [securitygroup] section
-    # TODO
+    sed -i "/^\[securitygroup\]$/ a enable_ipset = True" /etc/neutron/plugins/ml2/ml2_conf.ini
 
     # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [ovs] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    sed -i "/^\[ovs\]$/ a local_ip = $ENV_TUNNEL_OS_NETWORK_IP" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
+    sed -i "/^\[ovs\]$/ a bridge_mappings = external:br-ex" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
 
     # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [agent] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    sed -i "/^\[agent\]$/ a tunnel_types = vxlan" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
+    sed -i "/^\[agent\]$/ a l2_population = True" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
+    sed -i "/^\[agent\]$/ a prevent_arp_spoofing = True" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
 
     # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [securitygroup] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    sed -i "/^\[securitygroup\]$/ a enable_security_group = True" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
+    sed -i "/^\[securitygroup\]$/ a firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
 
     # Edit the /etc/neutron/l3_agent.ini file, [DEFAULT] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    sed -i "/^\[DEFAULT\]$/ a interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver" /etc/neutron/l3_agent.ini
 
     # Edit the /etc/neutron/dhcp_agent.ini file, [DEFAULT] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    sed -i "/^\[DEFAULT\]$/ a interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver" /etc/neutron/dhcp_agent.ini
+    sed -i "/^\[DEFAULT\]$/ a dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq" /etc/neutron/dhcp_agent.ini
+    sed -i "/^\[DEFAULT\]$/ a enable_isolated_metadata = True" /etc/neutron/dhcp_agent.ini
+    sed -i "/^\[DEFAULT\]$/ a dnsmasq_config_file = /etc/neutron/dnsmasq-neutron.conf" /etc/neutron/dhcp_agent.ini
 
     # Create the /etc/neutron/dnsmasq-neutron.conf file to adjust MTU
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    echo "dhcp-option-force=26,1450" > /etc/neutron/dnsmasq-neutron.conf
+    chgrp neutron /etc/neutron/dnsmasq-neutron.conf
 
     # Edit the /etc/neutron/metadata_agent.ini file, [DEFAULT] section
-    # TODO
+    sed -i "/^\[DEFAULT\]$/ a nova_metadata_ip = os-controller" /etc/neutron/metadata_agent.ini
+    sed -i "/^\[DEFAULT\]$/ a metadata_proxy_shared_secret = METADATA_SECRET" /etc/neutron/metadata_agent.ini
 
     # Configure OVS
     # TODO
