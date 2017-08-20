@@ -183,32 +183,49 @@ function install_neutron() {
 
     # Edit the /etc/sysctl.conf
     # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
-    # TODO
+    sed -i "$ a net.ipv4.conf.all.rp_filter = 0" /etc/sysctl.conf
+    sed -i "$ a net.ipv4.conf.default.rp_filter = 0" /etc/sysctl.conf
+    sed -i "$ a net.bridge.bridge-nf-call-iptables = 1" /etc/sysctl.conf
+    sed -i "$ a net.bridge.bridge-nf-call-ip6tables = 1" /etc/sysctl.conf
+    sysctl -p
 
     # Edit the /etc/neutron/neutron.conf file, [database] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
+    sed -i "s|^connection = |#connection = |" /etc/neutron/neutron.conf
 
     # Edit the /etc/neutron/neutron.conf file, [DEFAULT] section
-    # TODO
+    sed -i "/^\[DEFAULT\]$/ a service_plugins = router" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a allow_overlapping_ips = True" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a transport_url = rabbit://openstack:RABBIT_PASS@os-controller" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a auth_strategy = keystone" /etc/neutron/neutron.conf
 
     # Edit the /etc/neutron/neutron.conf file, [keystone_authtoken] section
-    # TODO
+    echo -e "auth_uri = http://os-controller:5000\nauth_url = http://os-controller:35357\nmemcached_servers = os-controller:11211\nauth_type = password\nproject_domain_name = Default\nuser_domain_name = Default\nproject_name = service\nusername = neutron\npassword = NEUTRON_PASS\n" | sed -i "/^\[keystone_authtoken\]/ r /dev/stdin" /etc/neutron/neutron.conf
 
     # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [ovs] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
+    sed -i "/^\[ovs\]$/ a local_ip = $ENV_TUNNEL_OS_COMPUTE_IP" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
 
     # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [agent] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
+    sed -i "/^\[agent\]$/ a tunnel_types = vxlan" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
+    sed -i "/^\[agent\]$/ a l2_population = True" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
+    sed -i "/^\[agent\]$/ a prevent_arp_spoofing = True" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
 
     # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [securitygroup] section
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
+    sed -i "/^\[securitygroup\]$/ a enable_security_group = True" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
+    sed -i "/^\[securitygroup\]$/ a firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver" /etc/neutron/plugins/ml2/openvswitch_agent.ini 
 
     # Restart the Networking services
     service openvswitch-switch restart
     service neutron-openvswitch-agent restart
 
     # Log files
-    # TODO
+    # /var/log/neutron/neutron-openvswitch-agent.log
+    # /var/log/neutron/neutron-ovs-cleanup.log
+    # /var/log/openvswitch/ovsdb-server.log
+    # /var/log/openvswitch/ovs-vswitchd.log
 
     # References
     # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install.html
