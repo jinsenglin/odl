@@ -189,8 +189,10 @@ function install_neutron() {
     # Log files
     # TODO
 
-    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install.html
-    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install-option2.html
+    # References
+    # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install.html
+    # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install-option2.html
+    # https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
 }
 
 function main() {

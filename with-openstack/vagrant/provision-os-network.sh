@@ -100,8 +100,72 @@ function install_neutron() {
                    neutron-dhcp-agent=$NEUTRON_DHCP_AGENT_VERSION \
                    neutron-metadata-agent=$NEUTRON_METADATA_AGENT_VERSION
 
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # Edit the /etc/neutron/neutron.conf file, [database] section
     # TODO
-    # ?
+
+    # Edit the /etc/neutron/neutron.conf file, [DEFAULT] section
+    # TODO
+
+    # Edit the /etc/neutron/neutron.conf file, [keystone_authtoken] section
+    # TODO
+
+    # Edit the /etc/neutron/neutron.conf file, [nova] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2_type_flat] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2_type_vxlan] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [securitygroup] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [linux_bridge] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [vxlan] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [securitygroup] section
+    # TODO
+
+    # Edit the /etc/neutron/l3_agent.ini file, [DEFAULT] section
+    # TODO
+
+    # Edit the /etc/neutron/dhcp_agent.ini file, [DEFAULT] section
+    # TODO
+
+    # Edit the /etc/neutron/metadata_agent.ini file, [DEFAULT] section
+    # TODO
+
+    # Edit the /etc/nova/nova.conf file, [neutron] section
+    # TODO
+
+    # Restart the Networking services
+    service openvswitch-switch restart
+    service neutron-openvswitch-agent restart
+    service neutron-dhcp-agent restart
+    service neutron-metadata-agent restart
+    service neutron-l3-agent restart
+
+    # Verify operation
+    #source /root/admin-openrc
+    #openstack neutron ext-list
+    #openstack network agent list
+
+    # Log files
+    # TODO
+
+    # References
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install.html
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
+    # https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
 }
 
 function main() {

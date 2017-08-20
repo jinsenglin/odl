@@ -325,7 +325,7 @@ DATA
     openstack image create "cirros" --file $CACHE/cirros-0.3.4-x86_64-disk.img --disk-format qcow2 --container-format bare --public
     openstack image list
 
-    # LOG files
+    # Log files
     # /var/log/glance/glance-api.log
     # /var/log/glance/glance-registry.log    
 
@@ -341,7 +341,7 @@ function install_neutron() {
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-        # Create the database
+    # Create the database
     mysql <<DATA
 CREATE DATABASE neutron;
 GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY 'NEUTRON_DBPASS';
@@ -431,6 +431,11 @@ DATA
 
     # Log files
     # TODO
+
+    # References
+    # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install.html
+    # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
+    # https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#controller-node
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install.html
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
