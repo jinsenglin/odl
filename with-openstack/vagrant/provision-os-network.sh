@@ -173,9 +173,10 @@ function install_neutron() {
     # TODO
 
     # References
-    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install.html
-    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
+    # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install.html
+    # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
     # https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    # https://www.centos.bz/2012/04/linux-sysctl-conf/
 }
 
 function main() {

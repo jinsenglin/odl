@@ -204,6 +204,7 @@ function install_neutron() {
     # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install.html
     # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install-option2.html
     # https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
+    # https://www.centos.bz/2012/04/linux-sysctl-conf/
 }
 
 function main() {
