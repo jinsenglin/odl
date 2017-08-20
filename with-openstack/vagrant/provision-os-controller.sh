@@ -362,38 +362,41 @@ DATA
 
     # Create the service api endpoint
     source /root/admin-openrc
-    openstack endpoint create --region RegionOne network public http://os-controller:9296
-    openstack endpoint create --region RegionOne network internal http://os-controller:9296
-    openstack endpoint create --region RegionOne network admin http://os-controller:9296
+    openstack endpoint create --region RegionOne network public http://os-controller:9696
+    openstack endpoint create --region RegionOne network internal http://os-controller:9696
+    openstack endpoint create --region RegionOne network admin http://os-controller:9696
 
     # Edit the /etc/neutron/neutron.conf file, [database] section
-    # TODO
+    sed -i "s|^connection = sqlite.*|connection = mysql+pymysql://neutron:NEUTRON_DBPASS@os-controller/neutron|" /etc/neutron/neutron.conf
 
     # Edit the /etc/neutron/neutron.conf file, [DEFAULT] section
-    # TODO
+    sed -i "/^\[DEFAULT\]$/ a service_plugins = router" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a allow_overlapping_ips = True" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a transport_url = rabbit://openstack:RABBIT_PASS@os-controller" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a auth_strategy = keystone" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a notify_nova_on_port_status_changes = True" /etc/neutron/neutron.conf
+    sed -i "/^\[DEFAULT\]$/ a notify_nova_on_port_data_changes = True" /etc/neutron/neutron.conf
 
     # Edit the /etc/neutron/neutron.conf file, [keystone_authtoken] section
-    # TODO
+    echo -e "auth_uri = http://os-controller:5000\nauth_url = http://os-controller:35357\nmemcached_servers = os-controller:11211\nauth_type = password\nproject_domain_name = Default\nuser_domain_name = Default\nproject_name = service\nusername = neutron\npassword = NEUTRON_PASS\n" | sed -i "/^\[keystone_authtoken\]/ r /dev/stdin" /etc/neutron/neutron.conf
 
     # Edit the /etc/neutron/neutron.conf file, [nova] section
-    # TODO
-
-    # Edit the /etc/neutron/neutron.conf file, [oslo_messaging_rabbit] section
-    # not mentioned in https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
-    # mentioned in https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#controller-node
-    # TODO
+    echo -e "auth_url = http://os-controller:35357\nauth_type = password\nproject_domain_name = Default\nuser_domain_name = Default\nregion_name = RegionOne\nproject_name = service\nusername = nova\npassword = NOVA_PASS\n" | sed -i "/^\[nova\]/ r /dev/stdin" /etc/neutron/neutron.conf
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2] section
-    # TODO
+    sed -i "/^\[ml2\]$/ a type_drivers = flat,vlan,vxlan" /etc/neutron/plugins/ml2/ml2_conf.ini
+    sed -i "/^\[ml2\]$/ a tenant_network_types = vxlan" /etc/neutron/plugins/ml2/ml2_conf.ini
+    sed -i "/^\[ml2\]$/ a mechanism_drivers = openvswitch,l2population" /etc/neutron/plugins/ml2/ml2_conf.ini
+    sed -i "/^\[ml2\]$/ a extension_drivers = port_security" /etc/neutron/plugins/ml2/ml2_conf.ini
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2_type_flat] section
-    # TODO
+    sed -i "/^\[ml2_type_flat\]$/ a flat_networks = provider" /etc/neutron/plugins/ml2/ml2_conf.ini
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2_type_vxlan] section
-    # TODO
+    sed -i "/^\[ml2_type_vxlan\]$/ a vni_ranges = 1:1000" /etc/neutron/plugins/ml2/ml2_conf.ini
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [securitygroup] section
-    # TODO
+    sed -i "/^\[securitygroup\]$/ a enable_ipset = True" /etc/neutron/plugins/ml2/ml2_conf.ini
 
     # Populate the database
     su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
@@ -403,11 +406,11 @@ DATA
 
     # Verify operation
     #source /root/admin-openrc
-    #openstack neutron ext-list
+    #neutron ext-list
     #openstack network agent list
 
     # Log files
-    # TODO
+    # /var/log/neutron/neutron-server.log
 
     # References
     # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install.html
