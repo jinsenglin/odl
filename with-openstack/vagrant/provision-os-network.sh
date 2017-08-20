@@ -14,6 +14,8 @@ ENV_TUNNEL_OS_NETWORK_IP="10.0.1.21"
 ENV_TUNNEL_OS_COMPUTE_IP="10.0.1.31"
 ENV_TUNNEL_ODL_CONTROLLER_IP="10.0.1.41"
 
+ENV_PUBLIC_INTERFACE="enp0s10"
+
 LOG=/tmp/provision.log
 date | tee $LOG            # when:  Thu Aug 10 07:48:13 UTC 2017
 whoami | tee -a $LOG       # who:   root
@@ -110,7 +112,10 @@ function install_neutron() {
 
     # Edit the /etc/sysctl.conf
     # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
-    # TODO
+    sed -i "$ a net.ipv4.ip_forward = 1" /etc/sysctl.conf
+    sed -i "$ a net.ipv4.conf.all.rp_filter = 0" /etc/sysctl.conf
+    sed -i "$ a net.ipv4.conf.default.rp_filter = 0" /etc/sysctl.conf
+    sysctl -p
 
     # Edit the /etc/neutron/neutron.conf file, [database] section
     # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
@@ -178,7 +183,10 @@ function install_neutron() {
     sed -i "/^\[DEFAULT\]$/ a metadata_proxy_shared_secret = METADATA_SECRET" /etc/neutron/metadata_agent.ini
 
     # Configure OVS
-    # TODO
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    service openvswitch-switch restart
+    ovs-vsctl add-br br-ex
+    ovs-vsctl add-port br-ex $ENV_PUBLIC_INTERFACE
 
     # Restart the Networking services
     service openvswitch-switch restart
@@ -187,13 +195,14 @@ function install_neutron() {
     service neutron-metadata-agent restart
     service neutron-l3-agent restart
 
-    # Verify operation
-    #source /root/admin-openrc
-    #openstack neutron ext-list
-    #openstack network agent list
-
     # Log files
-    # TODO
+    # /var/log/neutron/neutron-dhcp-agent.log
+    # /var/log/neutron/neutron-l3-agent.log
+    # /var/log/neutron/neutron-metadata-agent.log
+    # /var/log/neutron/neutron-openvswitch-agent.log
+    # /var/log/neutron/neutron-ovs-cleanup.log
+    # /var/log/openvswitch/ovsdb-server.log
+    # /var/log/openvswitch/ovs-vswitchd.log
 
     # References
     # https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install.html

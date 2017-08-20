@@ -27,10 +27,11 @@ In this deployment, we add 4 NICs:
 * VirtualBox network adapter :: Attached to: HOST-ONLY
 * VirtualBox network adapter :: Promiscuous mode: ALLOW-ALL
 * C class network
-  * 10.0.0.0/24 for management network
-  * 10.0.1.0/24 for tunnel network
-  * 10.0.3.0/24 preserved, not yet used
-  * 10.0.4.0/24 preserved, not yet used
+  * 10.0.0.0/24 for management network, enp0s8
+  * 10.0.1.0/24 for tunnel network, enp0s9
+  * 10.0.3.0/24 for public network, enp0s10
+  * 10.0.4.0/24 preserved, not yet used, enp0s16
 
-Question: which one is used to be public network? adapter1 or adapter3?
+Question: which one is used to be public network? adapter1 or adapter4?
+
 
