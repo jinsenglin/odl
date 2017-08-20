@@ -432,6 +432,7 @@ DATA
     # Log files
     # TODO
 
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install.html
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
     # This reference is for 2-nodes deployment (one controller, one compute), but we need 3-nodes deployment (one controller, one network, one compute).
     # This reference uses neutron-linuxbridge-agent, but we need neutron-openvswitch-agent.

@@ -157,8 +157,40 @@ function install_neutron() {
     apt install -y neutron-plugin-ml2=$NEUTRON_PLUGIN_ML2_VERSION \
                    neutron-openvswitch-agent=$NEUTRON_OPENVSWITCH_AGENT_VERSION
 
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # Edit the /etc/neutron/neutron.conf file, [database] section
     # TODO
-    # ?
+
+    # Edit the /etc/neutron/neutron.conf file, [DEFAULT] section
+    # TODO
+
+    # Edit the /etc/neutron/neutron.conf file, [keystone_authtoken] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [linux_bridge] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [vxlan] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [securitygroup] section
+    # TODO
+
+    # Edit the /etc/nova/nova.conf file, [neutron] section
+    # TODO
+
+    # Restart the Compute service
+    service nova-compute restart
+
+    # Restart the Linux bridge agent
+    service neutron-linuxbridge-agent restart
+
+    # Log files
+    # TODO
+
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install.html
+    # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install-option2.html
 }
 
 function main() {
