@@ -582,8 +582,8 @@ DATA
     cat >> /etc/nova/nova.conf <<DATA
 
 [neutron]
-url = http://$ENV_MGMT_OS_CONTROLLER_IP:9696
-auth_url = http://$ENV_MGMT_OS_CONTROLLER_IP:35357
+url = http://os-controller:9696
+auth_url = http://os-controller:35357
 auth_type = password
 project_domain_name = default
 user_domain_name = default
