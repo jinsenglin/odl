@@ -588,6 +588,7 @@ DATA
 
     # Edit the /etc/nova/nova.conf file, [neutron] section
     # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#controller-node
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
     cat >> /etc/nova/nova.conf <<DATA
 
 [neutron]
@@ -600,6 +601,8 @@ region_name = RegionOne
 project_name = service
 username = neutron
 password = NEUTRON_PASS
+service_metadata_proxy = True
+metadata_proxy_shared_secret = METADATA_SECRET
 DATA
 
     # Populate the database
