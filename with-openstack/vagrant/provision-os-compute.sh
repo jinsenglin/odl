@@ -141,6 +141,22 @@ DATA
     # Edit the /etc/nova/nova.conf file, [libvirt] section
     sed -i "/^\[libvirt\]$/ a virt_type = qemu" /etc/nova/nova.conf
 
+    # Edit the /etc/nova/nova.conf file, [neutron] section
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
+    cat >> /etc/nova/nova.conf <<DATA
+
+[neutron]
+url = http://$ENV_MGMT_OS_CONTROLLER_IP:9696
+auth_url = http://$ENV_MGMT_OS_CONTROLLER_IP:35357
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = NEUTRON_PASS
+DATA
+
     # Restart the Compute service
     service nova-compute restart
 
@@ -186,12 +202,6 @@ function install_neutron() {
 
     # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [securitygroup] section
     # TODO
-
-    # Edit the /etc/nova/nova.conf file, [neutron] section
-    # TODO
-
-    # Restart the Compute service
-    service nova-compute restart
 
     # Restart the Networking services
     service openvswitch-switch restart

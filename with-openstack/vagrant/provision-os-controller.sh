@@ -395,14 +395,8 @@ DATA
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [securitygroup] section
     # TODO
 
-    # Edit the /etc/nova/nova.conf file, [neutron] section
-    # TODO
-
     # Populate the database
     su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
-
-    # Restart the Compute API service
-    service nova-api restart
 
     # Restart the Networking services
     service neutron-server restart
@@ -582,6 +576,22 @@ DATA
     # Edit the /etc/nova/nova.conf file, [oslo_concurrency] section
     sed -i "/^lock_path=/ d" /etc/nova/nova.conf
     sed -i "/^\[oslo_concurrency\]$/ a lock_path = /var/lib/nova/tmp" /etc/nova/nova.conf
+
+    # Edit the /etc/nova/nova.conf file, [neutron] section
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#controller-node
+    cat >> /etc/nova/nova.conf <<DATA
+
+[neutron]
+url = http://$ENV_MGMT_OS_CONTROLLER_IP:9696
+auth_url = http://$ENV_MGMT_OS_CONTROLLER_IP:35357
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = NEUTRON_PASS
+DATA
 
     # Populate the database
     su -s /bin/sh -c "nova-manage api_db sync" nova
