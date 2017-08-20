@@ -339,8 +339,98 @@ function install_neutron() {
     apt install -y neutron-server=$NEUTRON_SERVER_VERSION \
                    neutron-plugin-ml2=$NEUTRON_PLUGIN_ML2_VERSION
 
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+        # Create the database
+    mysql <<DATA
+CREATE DATABASE neutron;
+GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY 'NEUTRON_DBPASS';
+GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'NEUTRON_DBPASS';
+DATA
+
+    # Create the user
+    source /root/admin-openrc
+    openstack user create --domain default --password NEUTRON_PASS neutron
+
+    # Associate the user with the admin role and the service project
+    source /root/admin-openrc
+    openstack role add --project service --user neutron admin
+
+    # Create the service entity
+    source /root/admin-openrc
+    openstack service create --name neutron --description "OpenStack Networking" network
+
+    # Create the service api endpoint
+    source /root/admin-openrc
+    openstack endpoint create --region RegionOne network public http://os-controller:9296
+    openstack endpoint create --region RegionOne network internal http://os-controller:9296
+    openstack endpoint create --region RegionOne network admin http://os-controller:9296
+
+    # Edit the /etc/neutron/neutron.conf file, [database] section
     # TODO
-    # ?
+
+    # Edit the /etc/neutron/neutron.conf file, [DEFAULT] section
+    # TODO
+
+    # Edit the /etc/neutron/neutron.conf file, [keystone_authtoken] section
+    # TODO
+
+    # Edit the /etc/neutron/neutron.conf file, [nova] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2_type_flat] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2_type_vxlan] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [securitygroup] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [linux_bridge] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [vxlan] section
+    # TODO
+
+    # Edit the /etc/neutron/plugins/ml2/linuxbridge_agent.ini file, [securitygroup] section
+    # TODO
+
+    # Edit the /etc/neutron/l3_agent.ini file, [DEFAULT] section
+    # TODO
+
+    # Edit the /etc/neutron/dhcp_agent.ini file, [DEFAULT] section
+    # TODO
+
+    # Edit the /etc/neutron/metadata_agent.ini file, [DEFAULT] section
+    # TODO
+
+    # Edit the /etc/nova/nova.conf file, [neutron] section
+    # TODO
+
+    # Populate the database
+    su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
+
+    # Restart the Compute API service
+    service nova-api restart
+
+    # Restart the Networking services
+    service neutron-server restart
+    service neutron-linuxbridge-agent restart
+    service neutron-dhcp-agent restart
+    service neutron-metadata-agent restart
+    service neutron-l3-agent restart
+
+    # Verify operation
+    #source /root/admin-openrc
+    #openstack neutron ext-list
+    #openstack network agent list
+
+    # Log files
+    # TODO
 
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/neutron-controller-install-option2.html
     # This reference is for 2-nodes deployment (one controller, one compute), but we need 3-nodes deployment (one controller, one network, one compute).
