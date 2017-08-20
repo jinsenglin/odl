@@ -182,8 +182,7 @@ function install_neutron() {
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Edit the /etc/sysctl.conf
-    # not mentioned in https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install-option2.html
-    # mentioned in https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
+    # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
     # TODO
 
     # Edit the /etc/neutron/neutron.conf file, [database] section
@@ -193,11 +192,6 @@ function install_neutron() {
     # TODO
 
     # Edit the /etc/neutron/neutron.conf file, [keystone_authtoken] section
-    # TODO
-
-    # Edit the /etc/neutron/neutron.conf file, [oslo_messaging_rabbit] section
-    # not mentioned in https://docs.openstack.org/newton/install-guide-ubuntu/neutron-compute-install-option2.html
-    # mentioned in https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
     # TODO
 
     # Edit the /etc/neutron/plugins/ml2/openvswitch_agent.ini file, [ovs] section
