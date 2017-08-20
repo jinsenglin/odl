@@ -34,4 +34,12 @@ In this deployment, we add 4 NICs:
 
 Question: which one is used to be public network? adapter1 or adapter4?
 
+---
 
+# Boostrap
+
+```
+vagrant up os-controller
+vagrant up os-network
+vagrant up os-compute
+```
