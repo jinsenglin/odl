@@ -34,6 +34,10 @@ neutron router-gateway-set demo-router ext-net
     # `ip netns` should see 1 qrouter-xxxx
     # `neutron router-port-list demo-router` should see 1 entry, e.g., "ip_address": "10.0.3.238"
     # `ip netns exec qrouter-6c0b27fa-ad79-4bbc-b66c-1a8b8be6bae7 route -n`
+    # `ip netns exec qrouter-6c0b27fa-ad79-4bbc-b66c-1a8b8be6bae7 ip a`
+    # `ip netns exec qrouter-6c0b27fa-ad79-4bbc-b66c-1a8b8be6bae7 ping -c 1 10.0.3.238`
+    # `ip netns exec qrouter-6c0b27fa-ad79-4bbc-b66c-1a8b8be6bae7 ping -c 1 10.0.3.1`
+    # `ip netns exec qrouter-6c0b27fa-ad79-4bbc-b66c-1a8b8be6bae7 ping -c 1 10.0.3.254`
 # See https://docs.openstack.org/newton/install-guide-ubuntu/launch-instance-networks-selfservice.html
 openstack router create router
 neutron router-interface-add router selfservice
