@@ -163,6 +163,7 @@ password = NEUTRON_PASS
 DATA
 
     # Edit the /etc/nova/nova-compute.conf file, [libvirt] section
+    sed -i "/^virt_type=/ d" /etc/nova/nova-compute.conf
     sed -i "/^\[libvirt\]$/ a virt_type = qemu" /etc/nova/nova-compute.conf
 
     # Restart the Compute service
