@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ifconfig enp0s10 up
+
 FLAT_NETWORK_NAME=external
 
 # Create the provider network
@@ -25,6 +27,18 @@ openstack network create $SELFSERVICE_NETWORK_NAME
 # Create the self-service subnet
 openstack subnet create --network $SELFSERVICE_NETWORK_NAME --dns-nameserver 8.8.8.8 --gateway 172.16.1.1 --subnet-range 172.16.1.0/24 $SELFSERVICE_NETWORK_NAME
 neutron router-interface-add $ROUTER_NAME $SELFSERVICE_NETWORK_NAME
+
+# Create a flavor
+openstack flavor create --id 0 --vcpus 1 --ram 64 --disk 1 m1.nano
+
+# Permit ICMP (ping) in default security group
+openstack security group rule create --proto icmp default
+
+# Permit secure shell (SSH) access in default security group
+openstack security group rule create --proto tcp --dst-port 22 default
+
+# Launch an instance
+openstack server create --flavor m1.nano --image cirros --nic net-id=$SELFSERVICE_NETWORK_NAME --security-group default selfservice-instance
 
 #############################
 
