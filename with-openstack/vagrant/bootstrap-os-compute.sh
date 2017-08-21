@@ -94,11 +94,13 @@ function install_ntp() {
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-ntp-other.html
 }
 
-function install_nova() {
+function download_nova() {
     NOVA_COMPUTE_VERSION=2:14.0.7-0ubuntu2~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y nova-compute=$NOVA_COMPUTE_VERSION
+}
 
+function configure_nova() {
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Edit the /etc/nova/nova.conf file, [DEFAULT] section
@@ -172,13 +174,15 @@ DATA
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/nova-compute-install.html
 }
 
-function install_neutron() {
+function download_neutron() {
     NEUTRON_PLUGIN_ML2_VERSION=2:9.4.0-0ubuntu1.1~cloud0
     NEUTRON_OPENVSWITCH_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt install -y neutron-plugin-ml2=$NEUTRON_PLUGIN_ML2_VERSION \
                    neutron-openvswitch-agent=$NEUTRON_OPENVSWITCH_AGENT_VERSION
+}
 
+function configure_neutron() {
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Edit the /etc/sysctl.conf
@@ -241,7 +245,9 @@ function main() {
     each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address
     install_python
     install_ntp
-    install_nova
-    install_neutron
+    download_nova
+    download_neutron
+    configure_nova
+    configure_neutron
 }
 main

@@ -1,10 +1,12 @@
 #!/bin/bash
 
+PROVIDER_NETWORK_NAME=external
+
 # Create the external network
 # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/create-network.html
-neutron net-create ext-net --router:external --provider:physical_network provider --provider:network_type flat
+neutron net-create ext-net --router:external --provider:physical_network $PROVIDER_NETWORK_NAME --provider:network_type flat
 # See https://docs.openstack.org/newton/install-guide-ubuntu/launch-instance-networks-provider.html#launch-instance-networks-provider
-openstack network create  --share --external --provider-physical-network provider --provider-network-type flat provider
+openstack network create  --share --external --provider-physical-network $PROVIDER_NETWORK_NAME --provider-network-type flat provider
 
 # Create the external subnet
 # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/create-network.html

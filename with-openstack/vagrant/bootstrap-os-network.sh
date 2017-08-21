@@ -95,7 +95,7 @@ function install_ntp() {
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-ntp-other.html
 }
 
-function install_neutron() {
+function download_neutron() {
     NEUTRON_PLUGIN_ML2_VERSION=2:9.4.0-0ubuntu1.1~cloud0
     NEUTRON_OPENVSWITCH_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
     NEUTRON_L3_AGENT_VERSION=2:9.4.0-0ubuntu1.1~cloud0
@@ -107,7 +107,9 @@ function install_neutron() {
                    neutron-l3-agent=$NEUTRON_L3_AGENT_VERSION \
                    neutron-dhcp-agent=$NEUTRON_DHCP_AGENT_VERSION \
                    neutron-metadata-agent=$NEUTRON_METADATA_AGENT_VERSION
+}
 
+function configure_neutron() {
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Edit the /etc/sysctl.conf
@@ -219,6 +221,7 @@ function main() {
     each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address
     install_python
     install_ntp
-    install_neutron
+    download_neutron
+    configure_neutron
 }
 main

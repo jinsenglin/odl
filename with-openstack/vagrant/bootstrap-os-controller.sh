@@ -196,11 +196,13 @@ DATA
 
 }
 
-function install_keystone() {
+function download_keystone() {
     KEYSTONE_VERSION=2:10.0.2-0ubuntu1~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y keystone=$KEYSTONE_VERSION
+}
 
+function configure_keystone() {
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Create the database
@@ -262,11 +264,13 @@ DATA
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/keystone.html
 }
 
-function install_glance() {
+function download_glance() {
     GLANCE_VERSION=2:13.0.0-0ubuntu1~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y glance=$GLANCE_VERSION
+}
 
+function configure_glance() {
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Create the database
@@ -338,13 +342,15 @@ DATA
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/glance.html
 }
 
-function install_neutron() {
+function download_neutron() {
     NEUTRON_SERVER_VERSION=2:9.4.0-0ubuntu1.1~cloud0
     NEUTRON_PLUGIN_ML2_VERSION=2:9.4.0-0ubuntu1.1~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt install -y neutron-server=$NEUTRON_SERVER_VERSION \
                    neutron-plugin-ml2=$NEUTRON_PLUGIN_ML2_VERSION
+}
 
+function configure_neutron() {
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Create the database
@@ -495,9 +501,17 @@ DATA
     # This reference is for 3-nodes deployment.
     # Use VMware instead of VirtualBox.
     # Use "Promiscuous mode" on public network.
+
+    # References
+    # [ ns ] [ veth ] http://cizixs.com/2017/02/10/network-virtualization-network-namespace
+    # [ ns ] [ ovs ] http://www.rendoumi.com/yong-open-vswitch-de-nei-bu-duan-kou-lian-jie-liang-ge-namespace/
+    # [ ns ] [ ovs ] [ veth ] http://plasmixs.github.io/network-namespaces-ovs.html
+    # [ neutron ] [ ovs ] https://docs.openstack.org/liberty/networking-guide/scenario-classic-ovs.html
+    # [ ns ] [ ovs ] [ veth ] vs. [ ns ] [ ovs ] [ port ] http://www.opencloudblog.com/?p=66
+    # [ ovs ] [ patch] https://blog.scottlowe.org/2012/11/27/connecting-ovs-bridges-with-patch-ports/
 }
 
-function install_nova() {
+function download_nova() {
     NOVA_API_VERSION=2:14.0.7-0ubuntu2~cloud0
     NOVA_CONDUCTOR_VERSION=2:14.0.7-0ubuntu2~cloud0
     NOVA_CONSOLEAUTH_VERSION=2:14.0.7-0ubuntu2~cloud0
@@ -505,7 +519,9 @@ function install_nova() {
     NOVA_SCHEDULER_VERSION=2:14.0.7-0ubuntu2~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
     apt-get install -y nova-api=$NOVA_API_VERSION nova-conductor=$NOVA_CONDUCTOR_VERSION nova-consoleauth=$NOVA_CONSOLEAUTH_VERSION nova-novncproxy=$NOVA_NOVNCPROXY_VERSION nova-scheduler=$NOVA_SCHEDULER_VERSION
+}
 
+function configure_nova() {
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     # Create the database
@@ -637,9 +653,13 @@ function main() {
     install_mq
     install_memcached
     install_openstack_cli
-    install_keystone
-    install_glance
-    install_nova
-    install_neutron
+    download_keystone
+    download_glance
+    download_nova
+    download_neutron
+    configure_keystone
+    configure_glance
+    configure_nova
+    configure_neutron
 }
 main
