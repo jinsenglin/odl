@@ -29,7 +29,11 @@ openstack subnet create --network selfservice --dns-nameserver 8.8.4.4 --gateway
 # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/create-network.html
 neutron router-create demo-router
 neutron router-interface-add demo-router demo-subnet
-neutron router-gateway-set demo-router ext-net
+neutron router-gateway-set demo-router ext-net 
+    # will add a new port to OVS Bridge br-int, e.g., Port "qg-7b98d77a-e4"
+    # `ip netns` should see 1 qrouter-xxxx
+    # `neutron router-port-list demo-router` should see 1 entry, e.g., "ip_address": "10.0.3.238"
+    # `ip netns exec qrouter-6c0b27fa-ad79-4bbc-b66c-1a8b8be6bae7 route -n`
 # See https://docs.openstack.org/newton/install-guide-ubuntu/launch-instance-networks-selfservice.html
 openstack router create router
 neutron router-interface-add router selfservice
