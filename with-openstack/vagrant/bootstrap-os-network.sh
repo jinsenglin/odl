@@ -184,6 +184,7 @@ function install_neutron() {
 
     # Configure OVS
     # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#network-node
+    ifconfig $ENV_PUBLIC_INTERFACE 0.0.0.0
     service openvswitch-switch restart
     ovs-vsctl add-br br-ex
     ovs-vsctl add-port br-ex $ENV_PUBLIC_INTERFACE
