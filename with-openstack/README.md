@@ -36,10 +36,22 @@ Question: which one is used to be public network? adapter1 or adapter4?
 
 ---
 
-# Boostrap
+# Usage
 
 ```
-vagrant up os-controller
-vagrant up os-network
-vagrant up os-compute
+vagrant up --provision-with download os-controller
+vagrant up --provision-with download os-network
+vagrant up --provision-with download os-compute
+vagrant halt
+vagrant snapshot save ready-to-configure
+
+vagrant snapshot restore --no-provision ready-to-configure
+vagrant provision os-controller --provision-with configure
+vagrant provision os-network --provision-with configure
+vagrant provision os-compute --provision-with configure
+vagrant halt
+vagrant snapshot save ready-to-verify
+
+vagrant snapshot restore --no-provision ready-to-verify
+# ifconfig enp0s10 up
 ```
