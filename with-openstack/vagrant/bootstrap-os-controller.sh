@@ -396,7 +396,7 @@ DATA
     sed -i "/^\[ml2\]$/ a extension_drivers = port_security" /etc/neutron/plugins/ml2/ml2_conf.ini
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2_type_flat] section
-    sed -i "/^\[ml2_type_flat\]$/ a flat_networks = provider" /etc/neutron/plugins/ml2/ml2_conf.ini
+    sed -i "/^\[ml2_type_flat\]$/ a flat_networks = external" /etc/neutron/plugins/ml2/ml2_conf.ini
 
     # Edit the /etc/neutron/plugins/ml2/ml2_conf.ini file, [ml2_type_vxlan] section
     sed -i "/^\[ml2_type_vxlan\]$/ a vni_ranges = 1:1000" /etc/neutron/plugins/ml2/ml2_conf.ini
