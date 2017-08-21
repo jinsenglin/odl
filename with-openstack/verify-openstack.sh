@@ -1,27 +1,30 @@
 #!/bin/bash
 
-PROVIDER_NETWORK_NAME=external
+FLAT_NETWORK_NAME=external
 
 # Create the provider network
-openstack network create  --share --external --provider-physical-network $PROVIDER_NETWORK_NAME --provider-network-type flat $PROVIDER_NETWORK_NAME
+PROVIDER_NETWORK_NAME=provider
+openstack network create  --share --external --provider-physical-network $FLAT_NETWORK_NAME --provider-network-type flat $PROVIDER_NETWORK_NAME
 
 # Create the provider subnet
 openstack subnet create --network $PROVIDER_NETWORK_NAME --allocation-pool start=10.0.3.230,end=10.0.3.250 --dns-nameserver 8.8.8.8 --gateway 10.0.3.1 --subnet-range 10.0.3.0/24 --no-dhcp $PROVIDER_NETWORK_NAME
 
 # Create a router
-openstack router create router
-neutron router-gateway-set router $PROVIDER_NETWORK_NAME
+ROUTER_NAME=router
+openstack router create $ROUTER_NAME
+neutron router-gateway-set $ROUTER_NAME $PROVIDER_NETWORK_NAME
 
 # Ping this router
 apt-get install -y jq
-ping -c 1 $( neutron router-port-list -c fixed_ips -f json router | jq -r '.[0].fixed_ips' | jq -r '.ip_address' )
+ping -c 1 $( neutron router-port-list -c fixed_ips -f json $ROUTER_NAME | jq -r '.[0].fixed_ips' | jq -r '.ip_address' )
 
 # Create a self-service network
-openstack network create selfservice
+SELFSERVICE_NETWORK_NAME=selfservice
+openstack network create $SELFSERVICE_NETWORK_NAME
 
 # Create the self-service subnet
-openstack subnet create --network selfservice --dns-nameserver 8.8.8.8 --gateway 172.16.1.1 --subnet-range 172.16.1.0/24 selfservice
-neutron router-interface-add router selfservice
+openstack subnet create --network $SELFSERVICE_NETWORK_NAME --dns-nameserver 8.8.8.8 --gateway 172.16.1.1 --subnet-range 172.16.1.0/24 $SELFSERVICE_NETWORK_NAME
+neutron router-interface-add $ROUTER_NAME $SELFSERVICE_NETWORK_NAME
 
 #############################
 
