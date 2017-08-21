@@ -38,6 +38,7 @@ openstack security group rule create --proto tcp --dst-port 22 default
 
 # Launch an instance
 openstack server create --flavor m1.nano --image cirros --nic net-id=$SELFSERVICE_NETWORK_NAME --security-group default selfservice-instance
+openstack server show selfservice-instance
 
 #############################
 
