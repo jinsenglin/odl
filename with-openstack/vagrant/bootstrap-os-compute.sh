@@ -146,9 +146,6 @@ DATA
     sed -i "/^lock_path=/ d" /etc/nova/nova.conf
     sed -i "/^\[oslo_concurrency\]$/ a lock_path = /var/lib/nova/tmp" /etc/nova/nova.conf
 
-    # Edit the /etc/nova/nova.conf file, [libvirt] section
-    sed -i "/^\[libvirt\]$/ a virt_type = qemu" /etc/nova/nova.conf
-
     # Edit the /etc/nova/nova.conf file, [neutron] section
     # See https://kairen.gitbooks.io/openstack-ubuntu-newton/content/ubuntu-binary/neutron/#compute-node
     cat >> /etc/nova/nova.conf <<DATA
@@ -164,6 +161,9 @@ project_name = service
 username = neutron
 password = NEUTRON_PASS
 DATA
+
+    # Edit the /etc/nova/nova-compute.conf file, [libvirt] section
+    sed -i "/^\[libvirt\]$/ a virt_type = qemu" /etc/nova/nova-compute.conf
 
     # Restart the Compute service
     service nova-compute restart
