@@ -17,7 +17,6 @@ openstack router create $ROUTER_NAME
 neutron router-gateway-set $ROUTER_NAME $PROVIDER_NETWORK_NAME
 
 # Ping this router
-apt-get install -y jq
 ping -c 1 $( neutron router-port-list -c fixed_ips -f json $ROUTER_NAME | jq -r '.[0].fixed_ips' | jq -r '.ip_address' )
 
 # Create a self-service network
