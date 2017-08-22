@@ -92,22 +92,36 @@ function download_odl() {
     ODL_VERSION=0.5.3-Boron-SR3
     [ -f $CACHE/distribution-karaf-$ODL_VERSION.tar.gz ] || \
     wget -q https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/distribution-karaf/$ODL_VERSION/distribution-karaf-$ODL_VERSION.tar.gz -O $CACHE/distribution-karaf-$ODL_VERSION.tar.gz
-}
-
-function install_odl() {
-    download_odl
 
     tar -zxf $CACHE/distribution-karaf-$ODL_VERSION.tar.gz -C /opt
-    ln -sf /opt/distribution-karaf-$ODL_VERSION /opt/odl 
+    ln -sf /opt/distribution-karaf-$ODL_VERSION /opt/odl
+}
+
+function configure_odl() {
+    : 
 }
 
 function main() {
-    :
-    #use_local_apt_server
-    #use_public_apt_server
-    #each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address
-    #install_ntp
-    #use_local_apt_server
-    #install_odl
+    while [ $# -gt 0 ];
+    do
+        case $1 in
+            download)
+                #use_local_apt_server
+                use_public_apt_server
+                each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address
+                install_ntp
+                install_jdk
+                download_odl
+                ;;
+            configure)
+                configure_odl
+                ;;
+            *)
+                echo "unknown mode"
+                ;;
+        esac
+        shift
+    done
+    echo done
 }
-main
+main $@
