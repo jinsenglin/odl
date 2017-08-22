@@ -20,3 +20,11 @@ curl -X PUT -H "Content-Type: application/xml" -H "Accept: application/json" --u
 # Another method (same)
 
 # Reference https://wiki.opendaylight.org/view/OpenDaylight_OpenFlow_Plugin:End_to_End_Flows#Push_your_flow
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Another method (different)
+
+# Reference https://wiki.opendaylight.org/view/OpenDaylight_OpenFlow_Plugin:End_to_End_Flows#Adding_flow_via_rpc
+
+# More flows https://wiki.opendaylight.org/view/Editing_OpenDaylight_OpenFlow_Plugin:End_to_End_Flows:Example_Flows
