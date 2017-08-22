@@ -9,3 +9,11 @@ curl -H "Accept: application/json" --user admin:admin http://$CONTROLLER:8181/re
 
 # Reference https://wiki.opendaylight.org/view/OpenDaylight_OpenFlow_Plugin::End_to_End_Inventory
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Another method
+
+curl -H "Accept: application/json" --user admin:admin http://$CONTROLLER:8181/restconf/operational/opendaylight-inventory:nodes/node/openflow:$NODE_ID/table/$TABLE_ID/
+
+# Reference https://wiki.opendaylight.org/view/OpenDaylight_OpenFlow_Plugin:End_to_End_Flows#Check_for_your_flow_in_the_controller_config_via_RESTCONF
+# Reference https://wiki.opendaylight.org/view/OpenDaylight_OpenFlow_Plugin:End_to_End_Flows#Look_for_your_flow_stats_in_the_controller_operational_data_via_RESTCONF
