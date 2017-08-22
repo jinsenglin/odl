@@ -9,3 +9,12 @@ curl -H "Accept: application/json" --user admin:admin http://$CONTROLLER:8181/re
 # Against `ovs-ofctl dump-flows br0`
 
 # Reference https://wiki.opendaylight.org/view/OpenDaylight_OpenFlow_Plugin::End_to_End_Inventory
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Another method
+
+# not work!
+
+# Reference https://community.extremenetworks.com/extreme/topics/how-do-i-add-delete-modify-a-flow-using-the-odl-api-or-curl
+# Reference http://www.brocade.com/content/html/en/user-guide/SDN-Controller-2.1.0-User-Guide/GUID-D1E545F1-EF0B-4457-8BE7-C9413684072B.html
