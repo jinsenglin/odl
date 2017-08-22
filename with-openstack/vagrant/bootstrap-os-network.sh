@@ -215,13 +215,26 @@ function configure_neutron() {
 }
 
 function main() {
-    :
-    #use_local_apt_server
-    use_public_apt_server
-    each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address
-    install_python
-    install_ntp
-    download_neutron
-    configure_neutron
+    while [ $# -gt 0 ];
+    do
+        case $1 in
+            download)
+                #use_local_apt_server
+                use_public_apt_server
+                each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address
+                install_python
+                install_ntp
+                download_neutron
+                ;;
+            configure)
+                configure_neutron
+                ;;
+            *)
+                echo "unknown mode"
+                ;;
+        esac
+        shift
+    done
+    echo done
 }
 main

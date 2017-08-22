@@ -656,12 +656,12 @@ function main() {
                 install_mq
                 install_memcached
                 install_openstack_cli
-                ;;
-            configure)
                 download_keystone
                 download_glance
                 download_nova
                 download_neutron
+                ;;
+            configure)
                 configure_keystone
                 configure_glance
                 configure_nova
