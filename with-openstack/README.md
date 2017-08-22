@@ -42,6 +42,7 @@ Question: which one is used to be public network? adapter1 or adapter4?
 vagrant up --provision-with bootstrap os-controller
 vagrant up --provision-with bootstrap os-network
 vagrant up --provision-with bootstrap os-compute
+vagrant up --provision-with bootstrap odl-controller
 
 ```
 
@@ -51,6 +52,7 @@ vagrant up --provision-with bootstrap os-compute
 vagrant up --provision-with download os-controller
 vagrant up --provision-with download os-network
 vagrant up --provision-with download os-compute
+vagrant up --provision-with download odl-controller
 vagrant halt
 vagrant snapshot save ready-to-configure
 
@@ -58,6 +60,7 @@ vagrant snapshot restore --no-provision ready-to-configure
 vagrant provision os-controller --provision-with configure
 vagrant provision os-network --provision-with configure
 vagrant provision os-compute --provision-with configure
+vagrant provision odl-controller --provision-with configure
 vagrant halt
 vagrant snapshot save ready-to-verify
 
