@@ -36,7 +36,16 @@ Question: which one is used to be public network? adapter1 or adapter4?
 
 ---
 
-# Usage
+# Usage 1
+
+```
+vagrant up --provision-with bootstrap os-controller
+vagrant up --provision-with bootstrap os-network
+vagrant up --provision-with bootstrap os-compute
+
+```
+
+# Usage 2
 
 ```
 vagrant up --provision-with download os-controller
