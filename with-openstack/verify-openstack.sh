@@ -27,6 +27,9 @@ openstack network create $SELFSERVICE_NETWORK_NAME
 openstack subnet create --network $SELFSERVICE_NETWORK_NAME --dns-nameserver 8.8.8.8 --gateway 172.16.1.1 --subnet-range 172.16.1.0/24 $SELFSERVICE_NETWORK_NAME
 neutron router-interface-add $ROUTER_NAME $SELFSERVICE_NETWORK_NAME
 
+# Ping this router again
+ping -c 1 172.16.1.1
+
 # Create a flavor
 openstack flavor create --id 0 --vcpus 1 --ram 64 --disk 1 m1.nano
 
@@ -37,8 +40,22 @@ openstack security group rule create --proto icmp default
 openstack security group rule create --proto tcp --dst-port 22 default
 
 # Launch an instance
-openstack server create --flavor m1.nano --image cirros --nic net-id=$SELFSERVICE_NETWORK_NAME --security-group default selfservice-instance
-openstack server show selfservice-instance
+SELFSERVICE_INSTANCE_NAME=selfservice-instance
+openstack server create --flavor m1.nano --image cirros --nic net-id=$SELFSERVICE_NETWORK_NAME --security-group default $SELFSERVICE_INSTANCE_NAME
+openstack server show $SELFSERVICE_INSTANCE_NAME
+
+# Ping this instance
+ping -c 1 172.16.1.3 # CHANGE ME
+
+# Create a floating IP
+openstack floating ip create $PROVIDER_NETWORK_NAME
+openstack server add floating ip $SELFSERVICE_INSTANCE_NAME 10.0.3.232 # CHANGE ME
+
+# Ping this instance again
+ping -c 10.0.3.232 # CHANGE ME
+
+# Access this instance remotely
+ssh -P cubswin:) cirros@10.0.3.232
 
 #############################
 
