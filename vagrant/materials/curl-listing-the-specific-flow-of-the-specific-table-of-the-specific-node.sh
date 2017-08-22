@@ -14,7 +14,6 @@ curl -H "Accept: application/json" --user admin:admin http://$CONTROLLER:8181/re
 
 # Another method
 
-# not work!
+curl -H "Accept: application/json" --user admin:admin http://$CONTROLLER:8181/restconf/operational/opendaylight-inventory:nodes/node/openflow:$NODE_ID/table/$TABLE_ID/flow/$FLOW_ID | jq '.'
 
-# Reference https://community.extremenetworks.com/extreme/topics/how-do-i-add-delete-modify-a-flow-using-the-odl-api-or-curl
 # Reference http://www.brocade.com/content/html/en/user-guide/SDN-Controller-2.1.0-User-Guide/GUID-D1E545F1-EF0B-4457-8BE7-C9413684072B.html
