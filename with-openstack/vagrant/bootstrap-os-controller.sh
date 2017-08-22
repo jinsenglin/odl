@@ -170,7 +170,7 @@ function install_memcached() {
 function install_openstack_cli() {
     PYTHON_OPENSTACKCLIENT_VERSION=3.2.0-0ubuntu2~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
-    apt install -y python-openstackclient=$PYTHON_OPENSTACKCLIENT_VERSION jq
+    apt install -y python-openstackclient=$PYTHON_OPENSTACKCLIENT_VERSION jq sshpass
 
     cat > /root/admin-openrc <<DATA
 export OS_USERNAME=admin
