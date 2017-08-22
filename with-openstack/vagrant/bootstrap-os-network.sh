@@ -237,4 +237,4 @@ function main() {
     done
     echo done
 }
-main
+main $@
