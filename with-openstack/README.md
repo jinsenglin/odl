@@ -53,17 +53,15 @@ vagrant up --provision-with download os-controller
 vagrant up --provision-with download os-network
 vagrant up --provision-with download os-compute
 vagrant up --provision-with download odl-controller
-vagrant halt
 vagrant snapshot save ready-to-configure
 
-vagrant snapshot restore --no-provision ready-to-configure
+#vagrant snapshot restore --no-provision ready-to-configure
 vagrant provision os-controller --provision-with configure
 vagrant provision os-network --provision-with configure
 vagrant provision os-compute --provision-with configure
 vagrant provision odl-controller --provision-with configure
-vagrant halt
 vagrant snapshot save ready-to-verify
 
-vagrant snapshot restore --no-provision ready-to-verify
+# vagrant snapshot restore --no-provision ready-to-verify
 # ifconfig enp0s10 up
 ```
