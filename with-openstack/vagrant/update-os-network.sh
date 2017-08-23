@@ -14,7 +14,7 @@ systemctl start openvswitch-switch
 ovs-vsctl set-manager tcp:odl-controller:6640
 
 # 1-5
-ovs-vsctl set Open_vSwitch . other_config:local_ip=10.0.2.21
+ovs-vsctl set Open_vSwitch . other_config:local_ip=10.0.1.21
 
 # 1-6
 apt-get install -y python-networking-odl=1:2.0.1~git20160926.416a5c7-0ubuntu1~cloud0
