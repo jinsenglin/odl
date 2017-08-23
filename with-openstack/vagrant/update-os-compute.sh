@@ -11,7 +11,7 @@ systemctl start openvswitch-switch
 ovs-vsctl show
 
 # 1-4
-ovs-vsctl set-manager tcp:odl-controller:6640
+ovs-vsctl set-manager tcp:10.0.0.41:6640
 ovs-vsctl show
 
 # 1-5
