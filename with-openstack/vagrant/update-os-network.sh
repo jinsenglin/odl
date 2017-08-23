@@ -5,6 +5,8 @@
 # Modify the file /etc/network/interfaces
 # Modify the file /etc/udev/rules.d/70-persistent-net.rules
 # Reboot
+#
+# OR try use 'odl-router_v2' instead of 'odl-router'
 
 # 1-2
 systemctl stop neutron-l3-agent
