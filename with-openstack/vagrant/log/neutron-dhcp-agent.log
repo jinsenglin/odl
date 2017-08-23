@@ -1,0 +1,521 @@
+2017-08-22 09:31:50.648 23864 INFO neutron.common.config [-] Logging enabled!
+2017-08-22 09:31:50.659 23864 INFO neutron.common.config [-] /usr/bin/neutron-dhcp-agent version 9.4.0
+2017-08-22 09:31:50.772 23864 INFO neutron.agent.dhcp.agent [-] Synchronizing state
+2017-08-22 09:31:50.786 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 1 seconds. Client port: None
+2017-08-22 09:31:51.798 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 2 seconds. Client port: None
+2017-08-22 09:31:53.809 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 4 seconds. Client port: None
+2017-08-22 09:31:57.827 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 6 seconds. Client port: None
+2017-08-22 09:32:03.843 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 8 seconds. Client port: None
+2017-08-22 09:32:11.860 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 10 seconds. Client port: None
+2017-08-22 09:32:21.879 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 12 seconds. Client port: None
+2017-08-22 09:32:33.901 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 14 seconds. Client port: None
+2017-08-22 09:32:47.927 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 16 seconds. Client port: None
+2017-08-22 09:33:03.954 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 18 seconds. Client port: None
+2017-08-22 09:33:21.986 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 20 seconds. Client port: None
+2017-08-22 09:33:42.020 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 22 seconds. Client port: None
+2017-08-22 09:34:04.057 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 24 seconds. Client port: None
+2017-08-22 09:34:28.100 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 26 seconds. Client port: None
+2017-08-22 09:34:54.140 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 28 seconds. Client port: None
+2017-08-22 09:35:22.186 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 30 seconds. Client port: None
+2017-08-22 09:35:52.218 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:36:24.270 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:36:56.322 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:37:28.374 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:38:00.425 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:38:32.472 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:39:04.526 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:39:36.572 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:40:08.606 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:40:40.656 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:41:12.709 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:41:44.759 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:42:16.813 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:42:48.865 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:43:20.915 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:43:52.965 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:44:25.018 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:44:57.068 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:45:29.119 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:46:01.169 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:46:33.220 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:47:05.272 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:47:37.323 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:48:09.370 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:48:41.400 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:49:13.439 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:49:45.490 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:50:17.542 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:50:49.683 23864 ERROR oslo.messaging._drivers.impl_rabbit [req-56cdeca5-331f-41d8-a499-3020586031f7 - - - - -] [65d47ce1-1825-4070-8798-ef35878638b7] AMQP server on 127.0.0.1:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 32 seconds. Client port: None
+2017-08-22 09:50:58.420 24789 INFO neutron.common.config [-] Logging enabled!
+2017-08-22 09:50:58.427 24789 INFO neutron.common.config [-] /usr/bin/neutron-dhcp-agent version 9.4.0
+2017-08-22 09:50:58.551 24789 INFO neutron.agent.dhcp.agent [-] Synchronizing state
+2017-08-22 09:50:58.856 24789 INFO neutron.agent.dhcp.agent [req-374a1b82-e335-4774-ad41-b8c65395da73 - - - - -] All active networks have been fetched through RPC.
+2017-08-22 09:50:58.857 24789 INFO neutron.agent.dhcp.agent [req-374a1b82-e335-4774-ad41-b8c65395da73 - - - - -] Synchronizing state complete
+2017-08-22 09:50:58.906 24789 INFO neutron.agent.dhcp.agent [req-374a1b82-e335-4774-ad41-b8c65395da73 - - - - -] DHCP agent started
+2017-08-23 05:49:17.260 24789 INFO neutron.agent.dhcp.agent [req-70fe0434-8e7d-4c25-b362-fa805194703c - - - - -] Agent has just been revived. Scheduling full sync
+2017-08-23 05:49:17.611 24789 INFO neutron.agent.dhcp.agent [-] Synchronizing state
+2017-08-23 05:49:17.713 24789 INFO neutron.agent.dhcp.agent [req-ede5e2f9-307b-4e35-89cc-ec12e2beabc9 - - - - -] All active networks have been fetched through RPC.
+2017-08-23 05:49:17.714 24789 INFO neutron.agent.dhcp.agent [req-ede5e2f9-307b-4e35-89cc-ec12e2beabc9 - - - - -] Synchronizing state complete
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent [req-62db93c7-97a0-4a77-b5f0-0a2d959aa2b9 - - - - -] Failed reporting state!
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 009ca4665cf04eb99bb67e09805b0447
+2017-08-23 05:56:17.261 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 05:56:17.265 24789 WARNING oslo.service.loopingcall [req-62db93c7-97a0-4a77-b5f0-0a2d959aa2b9 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent [req-9c131747-c8c1-4b23-bc50-e5289236440b - - - - -] Failed reporting state!
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 5f4778c1865343349a817254bce0f60a
+2017-08-23 05:57:17.267 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 05:57:17.272 24789 WARNING oslo.service.loopingcall [req-9c131747-c8c1-4b23-bc50-e5289236440b - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent [req-032470f8-7488-4e47-b125-d5c488fe9054 - - - - -] Failed reporting state!
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 939cb5da4c7a40c7accf09be507e0c86
+2017-08-23 05:58:17.275 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 05:58:17.278 24789 WARNING oslo.service.loopingcall [req-032470f8-7488-4e47-b125-d5c488fe9054 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent [req-53dae5df-eaa4-4586-b1ea-90dd0294195a - - - - -] Failed reporting state!
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID c7a2440860a54ae58cf87a8d485cd6b0
+2017-08-23 05:59:17.280 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 05:59:17.284 24789 WARNING oslo.service.loopingcall [req-53dae5df-eaa4-4586-b1ea-90dd0294195a - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent [req-02b7c47b-e167-4bdd-912a-46cc2e8a5190 - - - - -] Failed reporting state!
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 942c800eda634179acc613fe2201257f
+2017-08-23 06:00:17.287 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:00:17.290 24789 WARNING oslo.service.loopingcall [req-02b7c47b-e167-4bdd-912a-46cc2e8a5190 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent [req-f762f605-9f3e-4e75-a32a-d7bdc7b949b5 - - - - -] Failed reporting state!
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID c6f23da6328a4fb597112c43c992b613
+2017-08-23 06:01:17.293 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:01:17.296 24789 WARNING oslo.service.loopingcall [req-f762f605-9f3e-4e75-a32a-d7bdc7b949b5 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent [req-d33a394c-0c74-4aa4-ac65-29383f138742 - - - - -] Failed reporting state!
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 5db81dd68e0a4f12981bf9d95b296a49
+2017-08-23 06:02:17.300 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:02:17.303 24789 WARNING oslo.service.loopingcall [req-d33a394c-0c74-4aa4-ac65-29383f138742 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent [req-396698e3-ef29-406e-8b94-fd784c999603 - - - - -] Failed reporting state!
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 046919bf2ac548cd8f5f2357660e6144
+2017-08-23 06:03:17.306 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:03:17.309 24789 WARNING oslo.service.loopingcall [req-396698e3-ef29-406e-8b94-fd784c999603 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent [req-c4ab6adc-a026-4789-a526-e225579f21d6 - - - - -] Failed reporting state!
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 51899714da284fa997d2099f6a3804a3
+2017-08-23 06:04:17.311 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:04:17.315 24789 WARNING oslo.service.loopingcall [req-c4ab6adc-a026-4789-a526-e225579f21d6 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent [req-d3ff85f2-2923-40a2-adcf-5e268084708b - - - - -] Failed reporting state!
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 3773b56a36c845938d537e8a9fa4e8b3
+2017-08-23 06:05:17.318 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:05:17.320 24789 WARNING oslo.service.loopingcall [req-d3ff85f2-2923-40a2-adcf-5e268084708b - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.00 sec
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent [req-83163ad2-2a12-42a5-b94a-2d3032fda60e - - - - -] Failed reporting state!
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 604c096b12054c7f9a0230b383be972f
+2017-08-23 06:06:17.322 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:06:17.326 24789 WARNING oslo.service.loopingcall [req-83163ad2-2a12-42a5-b94a-2d3032fda60e - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent [req-3cf63616-6c82-4ef6-bbd5-01482f12a366 - - - - -] Failed reporting state!
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 49d17d10bda94760811c980ab6953a4e
+2017-08-23 06:07:17.329 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:07:17.332 24789 WARNING oslo.service.loopingcall [req-3cf63616-6c82-4ef6-bbd5-01482f12a366 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent [req-29108348-30ad-4a9e-b8ed-ce78fab48d9a - - - - -] Failed reporting state!
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 7259167bbfac419d82ee022580a59b88
+2017-08-23 06:08:17.337 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:08:17.340 24789 WARNING oslo.service.loopingcall [req-29108348-30ad-4a9e-b8ed-ce78fab48d9a - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent [req-1ddfb143-7192-4541-a2de-c21a79f4e288 - - - - -] Failed reporting state!
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 299cd203ffb74aa49cc25c95d6636911
+2017-08-23 06:09:17.342 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:09:17.346 24789 WARNING oslo.service.loopingcall [req-1ddfb143-7192-4541-a2de-c21a79f4e288 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent [req-e71c54b7-8458-476f-ab5e-98b27b2706f8 - - - - -] Failed reporting state!
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 89513f4f4ba647cd8557a961fecae6c1
+2017-08-23 06:10:17.351 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:10:17.355 24789 WARNING oslo.service.loopingcall [req-e71c54b7-8458-476f-ab5e-98b27b2706f8 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent [req-c6fb9ff8-edcc-4739-b512-0d2541b07e26 - - - - -] Failed reporting state!
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 9b5b6bf4244540b3bcd68105134317fc
+2017-08-23 06:11:17.357 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:11:17.361 24789 WARNING oslo.service.loopingcall [req-c6fb9ff8-edcc-4739-b512-0d2541b07e26 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent [req-58448c27-6467-4865-a9ad-d5c02903171e - - - - -] Failed reporting state!
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID f22384e18cbb44a7bd630db2f73c9142
+2017-08-23 06:12:17.364 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:12:17.367 24789 WARNING oslo.service.loopingcall [req-58448c27-6467-4865-a9ad-d5c02903171e - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent [req-88ec95b3-5906-4f4e-863c-c26e65fddfd0 - - - - -] Failed reporting state!
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 4e67255891d643fbae5fe8e99c80509e
+2017-08-23 06:13:17.370 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:13:17.373 24789 WARNING oslo.service.loopingcall [req-88ec95b3-5906-4f4e-863c-c26e65fddfd0 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent [req-b95c6506-22e5-4f38-9219-afe2259dd304 - - - - -] Failed reporting state!
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID cef0aa8532584605a16f8449911e4f00
+2017-08-23 06:14:17.376 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:14:17.379 24789 WARNING oslo.service.loopingcall [req-b95c6506-22e5-4f38-9219-afe2259dd304 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent [req-b9f3e4db-7c92-43f3-a6ba-ebd42b82fadd - - - - -] Failed reporting state!
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 36311af2c7b34b4db148c999bd01bd3d
+2017-08-23 06:15:17.382 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:15:17.386 24789 WARNING oslo.service.loopingcall [req-b9f3e4db-7c92-43f3-a6ba-ebd42b82fadd - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent [req-966e27d0-bded-4b7e-bb30-c08f38f30924 - - - - -] Failed reporting state!
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID ba978a78dfb042f5bba37caada983508
+2017-08-23 06:16:17.389 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:16:17.392 24789 WARNING oslo.service.loopingcall [req-966e27d0-bded-4b7e-bb30-c08f38f30924 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent [req-adff7b50-9344-4f57-9dc1-f70b74868af6 - - - - -] Failed reporting state!
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent Traceback (most recent call last):
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/dhcp/agent.py", line 732, in _report_state
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent     ctx, self.agent_state, True)
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/neutron/agent/rpc.py", line 88, in report_state
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent     return method(context, 'report_state', **kwargs)
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent     retry=self.retry)
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 97, in _send
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent     timeout=timeout, retry=retry)
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 464, in send
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent     retry=retry)
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 453, in _send
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent     result = self._waiter.wait(msg_id, timeout)
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 336, in wait
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent     message = self.waiters.get(msg_id, timeout=timeout)
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent   File "/usr/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 238, in get
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent     'to message ID %s' % msg_id)
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent MessagingTimeout: Timed out waiting for a reply to message ID 1c68381738ce4eb495bc8ea6d587344f
+2017-08-23 06:17:17.395 24789 ERROR neutron.agent.dhcp.agent 
+2017-08-23 06:17:17.398 24789 WARNING oslo.service.loopingcall [req-adff7b50-9344-4f57-9dc1-f70b74868af6 - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 30.01 sec
+2017-08-23 06:17:50.379 24789 WARNING oslo.service.loopingcall [req-4db31bf3-4d54-4d0d-a946-e1c4a4f4edff - - - - -] Function 'neutron.agent.dhcp.agent.DhcpAgentWithStateReport._report_state' run outlasted interval by 2.98 sec
