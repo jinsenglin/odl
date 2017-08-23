@@ -4,7 +4,7 @@
 # TODO rename enp0s10 to 12345678-1234-1234-1234-123456789012
 # Modify the file /etc/network/interfaces
 # Modify the file /etc/udev/rules.d/70-persistent-net.rules
-# SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="02:88:d4:ef:43:e0", NAME="12345678-1234-1234-1234-123456789012"
+# SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="08:00:27:a8:e7:fa", NAME="12345678-1234-1234-1234-123456789012"
 # Reboot
 #
 # OR try use 'odl-router_v2' instead of 'odl-router'
