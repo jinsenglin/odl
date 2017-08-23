@@ -51,4 +51,5 @@ ovsdb_interface = vsctl
 DATA
 
 # 1-15
+ovs-vsctl add-br br-ex
 ovs-vsctl set Open_vSwitch . other_config:provider_mappings=external:br-ex
