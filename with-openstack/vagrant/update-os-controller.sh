@@ -36,3 +36,6 @@ su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --co
 
 # 1-14
 systemctl start neutron-server
+
+# 1-16
+curl -u admin:admin http://odl-controller:8080/controller/nb/v2/neutron/networks
