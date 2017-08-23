@@ -27,6 +27,8 @@ sed -i "/^\[DEFAULT\]$/ a service_plugins = odl-router" /etc/neutron/neutron.con
 mysql <<DATA
 DROP DATABASE IF EXISTS neutron;
 CREATE DATABASE neutron;
+GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY 'NEUTRON_DBPASS';
+GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'NEUTRON_DBPASS';
 DATA
 
 # 1-13
