@@ -53,5 +53,7 @@ DATA
 # 1-15
 ovs-vsctl add-br br-ex
 ovs-vsctl show
+ovs-vsctl add-port br-ex enp0s10
+ovs-vsctl show
 ovs-vsctl set Open_vSwitch . other_config:provider_mappings=external:br-ex
 ovs-vsctl show
