@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 1-0
+# TODO rename enp0s10 to 12345678-1234-1234-1234-123456789012 
+
 # 1-2
 systemctl stop neutron-l3-agent
 systemctl stop neutron-openvswitch-agent
