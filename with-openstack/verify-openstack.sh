@@ -51,6 +51,9 @@ openstack server show $SELFSERVICE_INSTANCE_NAME # status ACTIVE
 # SELFSERVICE_INSTANCE_IF_IP=$( openstack server show -c addresses -f json $SELFSERVICE_INSTANCE_NAME | jq -r '.addresses' | awk -F = '{print $2}' )
 # ip netns exec $QROUTER ping -c 1 $SELFSERVICE_INSTANCE_IF_IP
 
+# Access this instance remotely
+# nova get-vnc-console $SELFSERVICE_INSTANCE_NAME novnc
+
 # Create a floating IP
 openstack floating ip create $PROVIDER_NETWORK_NAME
 SELFSERVICE_INSTANCE_FLOATING_IP=$( openstack floating ip list -c "Floating IP Address" -f json | jq -r '.[0]["Floating IP Address"]' )
