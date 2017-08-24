@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# 1-0 rename enp0s10 to 12345678-1234-1234-1234-123456789012
-# Modify the file /etc/udev/rules.d/70-persistent-net.rules
-# SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="08:00:27:a8:e7:fa", NAME="12345678-1234-1234-1234-123456789012"
-# Reboot
+# 1-0 rename enp0s10 to 12345678-1234-1234-1234-123456789012 via updating the file /etc/udev/rules.d/70-persistent-net.rules
+# echo 'SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="08:00:27:a8:e7:fa", NAME="12345678-1234-1234-1234-123456789012"' >> /etc/udev/rules.d/70-persistent-net.rules
+# init 6
 # ifconfig 12345678-1234-1234-1234-123456789012 up
 #
 # OR try use 'odl-router_v2' instead of 'odl-router' (skipped)
