@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /root/admin-openrc
+
 FLAT_NETWORK_NAME=external
 
 # Create the provider network
