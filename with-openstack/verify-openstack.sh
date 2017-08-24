@@ -56,6 +56,9 @@ openstack server show $SELFSERVICE_INSTANCE_NAME # status ACTIVE
 # Access this instance remotely
 # nova get-vnc-console $SELFSERVICE_INSTANCE_NAME novnc
 
+# Access this instance remotely
+# Use VNC client to connect 10.0.0.31:5900
+
 # Create a floating IP
 openstack floating ip create $PROVIDER_NETWORK_NAME
 SELFSERVICE_INSTANCE_FLOATING_IP=$( openstack floating ip list -c "Floating IP Address" -f json | jq -r '.[0]["Floating IP Address"]' )
