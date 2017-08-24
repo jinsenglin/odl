@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# [ ? ] 0.4.4-Beryllium-SR4
-# [ ? ] 0.5.1-Boron-SR1
+# [ x ] 0.5.1-Boron-SR1
 # [ x ] 0.5.3-Boron-SR3
 # [ x ] 0.5.4-Boron-SR4
 
