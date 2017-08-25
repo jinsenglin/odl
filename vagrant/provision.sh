@@ -16,6 +16,12 @@ function install_jdk() {
     apt-get install -y openjdk-$JDK_VERSION-jdk
 }
 
+function install_maven() {
+    MAVEN_VERSION=3.3.9-3
+    [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
+    apt-get install -y maven=$MAVEN_VERSION
+}
+
 function install_ovs() {
     OVS_VERSION=2.5.2-0ubuntu0.16.04.1
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
@@ -44,6 +50,7 @@ function install_odl() {
 function main() {
     :
     install_jdk
+    install_maven # for developer
     install_ovs
     install_mn
     install_odl
