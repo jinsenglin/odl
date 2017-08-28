@@ -60,6 +60,11 @@ DATA
     # Reference https://docs.openstack.org/newton/install-guide-ubuntu/environment-networking.html
 }
 
+function install_utilities() {
+    [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
+    apt-get install -y jq sshpass crudini
+}
+
 function install_python() {
     PYTHON_VERSION=2.7.11-1
     PYTHON_PIP_VERSION=8.1.1-2ubuntu0.4
@@ -170,7 +175,7 @@ function install_memcached() {
 function install_openstack_cli() {
     PYTHON_OPENSTACKCLIENT_VERSION=3.2.0-0ubuntu2~cloud0
     [ "$APT_UPDATED" == "true" ] || apt-get update && APT_UPDATED=true
-    apt install -y python-openstackclient=$PYTHON_OPENSTACKCLIENT_VERSION jq sshpass
+    apt install -y python-openstackclient=$PYTHON_OPENSTACKCLIENT_VERSION
 
     cat > /root/admin-openrc <<DATA
 export OS_USERNAME=admin
@@ -650,6 +655,7 @@ function main() {
                 #use_local_apt_server
                 use_public_apt_server
                 each_node_must_resolve_the_other_nodes_by_name_in_addition_to_IP_address
+                install_utilities
                 install_python
                 install_ntp
                 install_sqldb
