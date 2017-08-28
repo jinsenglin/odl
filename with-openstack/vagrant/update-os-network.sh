@@ -52,12 +52,15 @@ sed -i "/^\[DEFAULT\]$/ a service_plugins = odl-router" /etc/neutron/neutron.con
 # 1-10
 sed -i "/^\[DEFAULT\]$/ a force_metadata = True" /etc/neutron/dhcp_agent.ini
 
-# 1-11
-cat >> /etc/neutron/dhcp_agent.ini <<DATA
+systemctl restart neutron-dhcp-agent
+systemctl restart neutron-metadata-agent
 
-[OVS]
-ovsdb_interface = vsctl
-DATA
+# 1-11
+#cat >> /etc/neutron/dhcp_agent.ini <<DATA
+#
+#[OVS]
+#ovsdb_interface = vsctl
+#DATA
 
 # 1-15
 ovs-vsctl set Open_vSwitch . other_config:provider_mappings=external:enp0s10
